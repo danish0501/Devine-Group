@@ -1,0 +1,332 @@
+.portfolio-container {
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.portfolio-sidebar {
+    width: 20%;
+    position: static;
+}
+
+.portfolio {
+    background-color: var(--white-color);
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.network-info {
+    background: var(--black-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--white-color);
+    height: 40px;
+    box-shadow: 0 0 10px rgb(123, 123, 123);
+}
+
+.network-info .connect-wallet {
+    padding: 30px;
+    border: 1px solid #FFF;
+}
+
+.portfolio-intro-section {
+    text-align: center;
+    margin: 0 auto;
+    color: var(--black-color);
+    margin-top: 25px;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.portfolio-intro-section h2 {
+    font-weight: bolder;
+}
+
+.portfolio-intro-section p {
+    font-weight: bold;
+}
+
+.portfolio-boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.portfolio-box {
+    background: linear-gradient(to bottom, #000000, #000000);
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #e4dbdb;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-box h2 {
+    font-size: 20px;
+    color: var(--white-color);
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.portfolio-logos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.portfolio-logos img {
+    width: 35px;
+    height: auto;
+}
+
+.portfolio-strategies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.portfolio-strategy {
+    position: relative;
+    padding: 60px;
+    border: 0.2px solid #4c4c4c;
+    border-radius: 5px;
+    box-shadow: 0 0 0.1px rgb(255, 255, 255);
+    background: linear-gradient(to bottom, #000000, #121212);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--white-color);
+    width: 24.25%;
+    box-sizing: border-box;
+}
+
+.strategy-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+}
+
+.strategy-icon:hover {
+    transform: scale(1.1);
+}
+
+.strategy-details {
+    text-align: left;
+    padding: 0 10px;
+}
+
+.strategy-header {
+    font-size: 20px;
+    color: var(--white-color);
+    text-align: center;
+}
+
+.strategy-percentage {
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    font-size: 14px;
+    color: var(--white-color);
+    font-weight: bold;
+    text-shadow: 0px 0px 8px #60ff51;
+}
+
+.strategy-financials {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.financial-balance,
+.financial-locked {
+    display: flex;
+    flex-direction: column;
+}
+
+.financial-label {
+    font-size: 15px;
+    color: #888;
+}
+
+.financial-value {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--white-color);
+    margin-left: 5px;
+}
+
+.reserve-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.reserve-modal-content {
+    background: linear-gradient(135deg, #020101, #000000);
+    box-shadow: 0 0 100px rgb(123, 123, 123);
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    padding: 30px;
+    width: 900px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.close-modal {
+    background: transparent;
+    border: none;
+    color: #696969;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    color: #ccc;
+    font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+    .portfolio-sidebar {
+        width: 25%;
+    }
+
+    .portfolio {
+        width: 75%;
+        padding: 15px;
+    }
+
+    .portfolio-strategy {
+        width: 32%;
+        padding: 50px;
+    }
+
+    .reserve-modal-content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 800px) {
+    .portfolio {
+        margin-left: 60px;
+    }
+
+    .portfolio-strategy {
+        width: 48%;
+    }
+}
+
+@media (max-width: 700px) {
+    .portfolio {
+        margin-left: 0px;
+    }
+
+    .portfolio-strategy {
+        padding: 50px;
+    }
+
+    .portfolio-container {
+        flex-direction: column;
+    }
+
+    .portfolio-sidebar,
+    .portfolio {
+        width: 100%;
+    }
+
+    .portfolio-strategies {
+        justify-content: center;
+    }
+
+    .portfolio-strategy {
+        width: 45%;
+        padding: 50px;
+    }
+
+    .portfolio-intro-section {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio {
+        padding: 10px;
+    }
+
+    .network-info .connect-wallet {
+        padding: 10px;
+    }
+
+    .portfolio-intro-section {
+        margin-top: 15px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .portfolio-box {
+        padding: 15px;
+    }
+
+    .portfolio-strategy {
+        width: 90%;
+        padding: 20px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .strategy-percentage {
+        top: 20px;
+        right: 10px;
+    }
+
+    .strategy-financials {
+        position: relative;
+        margin-top: 10px;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        justify-content: space-around;
+    }
+
+    .reserve-modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .portfolio-logos {
+        display: none;
+    }
+}

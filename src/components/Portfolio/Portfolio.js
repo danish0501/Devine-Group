@@ -1,0 +1,150 @@
+import React, { useEffect, useState } from 'react';
+import "./Portfolio.css";
+import Sidebar from '../Sidebar/Sidebar';
+import FloatingIcon from '../FloatingIcons/FloatingIcon';
+import dg10Logo from "../../assets/DG10logo.png";
+import dg11Logo from "../../assets/DG11logo.png";
+import dg04Logo from "../../assets/DG04logo.png";
+import dg05Logo from "../../assets/DG05logo.png";
+
+const Portfolio = () => {
+    const [account, setAccount] = useState(null); // Wallet connection state
+    const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+    const [selectedStrategy, setSelectedStrategy] = useState(null); // Store selected strategy for modal
+
+    // Dynamically add a class to the body when Portfolio page is active
+    useEffect(() => {
+        document.body.classList.add('portfolio-page'); // Add class when Portfolio page is active
+
+        return () => {
+            document.body.classList.remove('portfolio-page'); // Remove class when leaving the page
+        };
+    }, []);
+
+    const connectWallet = () => {
+        setAccount("0x1234567890abcdef"); // Mock account for demonstration
+    };
+
+    const portfolioData = [
+        {
+            title: "Portfolio Balances",
+            strategies: [
+                { name: "DG10", percentage: "10%", balance: "$1,000", locked: "$100", icon: dg10Logo },
+                { name: "DG04", percentage: "15%", balance: "$1,500", locked: "$150", icon: dg04Logo },
+                { name: "DG11", percentage: "20%", balance: "$2,000", locked: "$200", icon: dg11Logo },
+                { name: "DG05", percentage: "25%", balance: "$2,500", locked: "$250", icon: dg05Logo },
+            ],
+        },
+        {
+            title: "DeFi Collateral Balances",
+            strategies: [
+                { name: "DYXG", percentage: "12%", icon: dg10Logo },
+                { name: "Strategy Y", percentage: "18%", icon: dg04Logo },
+                { name: "Strategy Z", percentage: "22%", icon: dg11Logo },
+                { name: "Strategy W", percentage: "30%", icon: dg05Logo },
+            ],
+        },
+    ];
+
+    // Function to handle modal opening
+    const openModal = (strategy) => {
+        setSelectedStrategy(strategy);
+        setIsModalOpen(true);
+    };
+
+    // Function to close the modal
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedStrategy(null);
+    };
+
+    return (
+        <div className='portfolio-container'>
+            <div className="portfolio-sidebar">
+                <Sidebar />
+            </div>
+            <div className="portfolio">
+                {/* Header section */}
+                <div className={`header ${account ? 'connected' : ''}`} onClick={connectWallet} style={{ cursor: "pointer" }}>
+                    <div className="network-info">
+                        {account ? (
+                            <span className='connect-wallet'>{account}</span>
+                        ) : (
+                            <span className='connect-wallet'>Connect Wallet</span>
+                        )}
+                    </div>
+                </div>
+
+                <div className="portfolio-intro-section">
+                    <h2>Portfolio Overview</h2>
+                    <p>PNLs & Balances</p>
+                </div>
+
+                {/* Portfolio Boxes Section */}
+                <div className="portfolio-boxes">
+                    {portfolioData.map((data, index) => (
+                        <div key={index} className="portfolio-box">
+                            <h2>{data.title}</h2>
+                            <div className="portfolio-strategies">
+                                {data.strategies.map((strategy, idx) => (
+                                    <div key={idx} className="portfolio-strategy">
+                                        <img
+                                            src={strategy.icon}
+                                            alt={`${strategy.name} Icon`}
+                                            className="strategy-icon"
+                                            onClick={() => openModal(strategy)} // Open modal on icon click
+                                        />
+                                        <div className="strategy-details">
+                                            <div className="strategy-header">{strategy.name}</div>
+                                            {strategy.percentage && (
+                                                <div className="strategy-percentage">Daily PNL: {strategy.percentage}</div>
+                                            )}
+                                            {strategy.balance && strategy.locked && (
+                                                <div className="strategy-financials">
+                                                    <div className="financial-balance">
+                                                        <span className="financial-label">Balance</span>
+                                                        <span className="financial-value">{strategy.balance}</span>
+                                                    </div>
+                                                    <div className="financial-locked">
+                                                        <span className="financial-label">Locked</span>
+                                                        <span className="financial-value">{strategy.locked}</span>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Floating Icons */}
+                <FloatingIcon />
+
+                {/* Modal (Strategy Details) */}
+                {isModalOpen && (
+                    <div className="reserve-modal-overlay" onClick={closeModal}>
+                        <div className="reserve-modal-content" onClick={(e) => e.stopPropagation()}>
+                            <button className="close-modal" onClick={closeModal}>×</button>
+                            <div className="modal-header">
+                                <h3>{selectedStrategy?.name}</h3>
+                            </div>
+                            <div className="modal-body">
+                                <p>Daily PNL: {selectedStrategy?.percentage}</p>
+                                {selectedStrategy?.balance && (
+                                    <>
+                                        <p>Balance: {selectedStrategy.balance}</p>
+                                        <p>Locked: {selectedStrategy.locked}</p>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+export default Portfolio;

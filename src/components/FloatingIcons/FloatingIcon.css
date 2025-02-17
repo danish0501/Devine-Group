@@ -1,0 +1,35 @@
+.floating-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    flex-direction: row;
+    z-index: 1000;
+}
+
+.icon-link {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.icon-link img {
+    width: 30px;
+    height: 30px;
+}
+
+
+.floating-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.floating-icon:hover {
+    transform: scale(1.1);
+}
