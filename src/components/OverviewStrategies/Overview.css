@@ -32,8 +32,8 @@
 .intro-section {
     text-align: center;
     margin: 5px auto;
-    margin-top: 50px;
-    padding: 0 10px;
+    width: 100%;
+    padding-top: 20px;
 }
 
 .intro-section h2 {
@@ -268,7 +268,7 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .overview-container {
         flex-direction: column;
     }

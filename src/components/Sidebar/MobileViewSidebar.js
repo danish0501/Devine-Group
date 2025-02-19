@@ -25,6 +25,7 @@ function MobileViewSidebar() {
                 anchor={"left"}
                 open={open}
                 onClose={() => setOpen(false)}
+                PaperProps={{style: {width: "100%"}}}
             >
                 <div className="mobile-sidebar">
                     <div className="logo-container">
@@ -43,13 +44,13 @@ function MobileViewSidebar() {
                                 <Link to="/portfolio" className="dropdown-item">
                                     Portfolio Balances
                                 </Link>
-                                <Link to="/strategies" className="dropdown-item">
+                                <Link to="/overview-strategies" className="dropdown-item">
                                     Overviews
                                 </Link>
                                 <Link to="/vault" className="dropdown-item">
                                     Deposit/Withdraw
                                 </Link>
-                                <Link to="/DevineReservesPage" className="dropdown-item">
+                                <Link to="/devine-reserves" className="dropdown-item">
                                     Reserves
                                 </Link>
                                 <Link to="/OffChainDeposit" className="dropdown-item">

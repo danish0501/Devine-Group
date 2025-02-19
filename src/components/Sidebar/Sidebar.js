@@ -34,7 +34,7 @@ const Sidebar = () => {
                             <Link to="/vault" className="dropdown-item">
                                 Deposit/Withdraw
                             </Link>
-                            <Link to="/DevineReservesPage" className="dropdown-item">
+                            <Link to="/devine-reserves" className="dropdown-item">
                                 Reserves
                             </Link>
                             <Link to="/OffChainDeposit" className="dropdown-item">
