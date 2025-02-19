@@ -1,0 +1,277 @@
+.reserve-container {
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.reserve-sidebar {
+    width: 20%;
+    position: static;
+}
+
+.reserve {
+    background-color: var(--white-color);
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.reserve-header {
+    width: 100%;
+    background: black;
+    box-shadow: 0 0 20px rgb(123, 123, 123);
+    border-radius: 1px;
+    border: 2px solid #e4dbdb;
+    padding: 5px;
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+}
+
+.reserve-intro-section {
+    text-align: center;
+    margin: 5px 0;
+    width: 100%;
+    padding-top: 20px;
+    color: black;
+}
+
+.reserve-intro-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.reserve-intro-section p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.reserve-overview {
+    display: grid;
+    margin: 40px 100px 0;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.reserve-box {
+    background: black;
+    border-radius: 1px;
+    padding: 20px;
+    margin-top: 2px;
+    width: calc(50% - 30px);
+    box-shadow: 0 0 20px rgb(123, 123, 123);
+    border: 2px solid #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    height: 300px;
+    position: relative;
+}
+
+.reserve-box img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.reserve-box:hover {
+    transform: scale(1.01) rotate(0deg);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #a5a5a5, #000000);
+    transition: all 0.5s ease;
+}
+
+.reserve-box h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    padding: 0;
+}
+
+.reserve-box h3::after {
+    display: none;
+}
+
+.reserve-metrics {
+    font-weight: bold;
+    font-size: 14px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100%;
+    text-align: left;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.reserve-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.reserve-modal-content {
+    background: linear-gradient(135deg, #020101, #000000);
+    box-shadow: 0 0 100px rgb(123, 123, 123);
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    padding: 30px;
+    width: 900px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.reserve-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    color: var(--white-color);
+}
+
+.reserve-close-modal {
+    background: transparent;
+    border: none;
+    color: #696969;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.reserve-modal-body {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.reserve-modal-body h4 {
+    margin-top: 10px;
+}
+
+.reserve-details-box {
+    margin-bottom: 20px;
+    background: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    color: var(--white-color);
+}
+
+.reserve-details-box p {
+    margin: 5px 0;
+    margin-top: 20px;
+}
+
+.reserve-returns-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.reserve-returns-table th,
+.reserve-returns-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.reserve-returns-table th {
+    background-color: #333;
+    color: var(--white-color);
+}
+
+.reserve-returns-table td {
+    background-color: #222;
+    color: var(--white-color);
+}
+
+.reserve-returns-table tr:nth-child(even) {
+    background-color: #444;
+}
+
+.reserve-returns-table td,
+.reserve-returns-table th {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+@media (max-width: 1024px) {
+    .reserve {
+        margin-left: 60px;
+    }
+
+    .reserve-overview {
+        margin: 20px 0px 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .reserve {
+        margin-left: 80px;
+    }
+
+    .reserve-box {
+        height: 250px;
+    }
+
+    .reserve-box h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    .reserve {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reserve-container {
+        flex-direction: column;
+    }
+
+    .reserve {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .reserve-overview {
+        grid-auto-flow: row;
+        grid-auto-columns: minmax(250px, 1fr)
+    }
+
+    .reserve-box {
+        width: 100%;
+    }
+}

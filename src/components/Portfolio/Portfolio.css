@@ -22,13 +22,17 @@
     justify-content: flex-end;
     align-items: center;
     color: var(--white-color);
-    height: 40px;
+    height: 20px;
     box-shadow: 0 0 10px rgb(123, 123, 123);
 }
 
 .network-info .connect-wallet {
-    padding: 30px;
-    border: 1px solid #FFF;
+    padding: 5px 15px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .portfolio-intro-section {
@@ -249,7 +253,7 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .portfolio {
         margin-left: 0px;
     }
@@ -302,7 +306,7 @@
 
     .portfolio-strategy {
         width: 90%;
-        padding: 20px;
+        padding: 30px;
         margin: 0 auto;
         position: relative;
     }
@@ -315,10 +319,10 @@
     .strategy-financials {
         position: relative;
         margin-top: 10px;
-        bottom: auto;
+        bottom: -10px;
         left: auto;
         right: auto;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .reserve-modal-content {
@@ -328,5 +332,11 @@
 
     .portfolio-logos {
         display: none;
+    }
+}
+
+@media (max-width: 375px) {
+    .portfolio-strategy {
+        padding: 40px;
     }
 }
