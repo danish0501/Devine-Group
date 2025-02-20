@@ -6,6 +6,8 @@ import OverviewStrategies from './components/OverviewStrategies/Overview';
 import Home from './components/Home/Home';
 import Vault from './components/Vault/Vault';
 import DevineReserve from './components/DevineReserve/DevineReserve';
+import OffChainDeposit from './components/OffChainDeposit/OffChainDeposit';
+import HedgePool from './components/HedgePool/HedgePool';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/overview-strategies" element={<OverviewStrategies />} />
           <Route path="/vault" element={<Vault />} />
           <Route path="/devine-reserves" element={<DevineReserve />} />
+          <Route path="/OffChainDeposit" element={<OffChainDeposit />} />
+          <Route path="/hedge-pool" element={<HedgePool />} />
         </Routes>
       </Router>
     </div>

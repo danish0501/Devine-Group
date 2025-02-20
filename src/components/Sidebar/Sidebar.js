@@ -40,7 +40,7 @@ const Sidebar = () => {
                             <Link to="/OffChainDeposit" className="dropdown-item">
                                 Allocate to Off-Chain Trading Venues
                             </Link>
-                            <Link to="/hedge-pools" className="dropdown-item">
+                            <Link to="/hedge-pool" className="dropdown-item">
                                 Hedge Pools
                             </Link>
                         </div>

@@ -1,0 +1,124 @@
+.hedge-containers {
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.hedge-sidebar {
+    width: 20%;
+    position: static;
+}
+
+.hedge-container {
+    width: 90%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: white;
+    color: black;
+}
+
+.hedge-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.hedge-subtitle {
+    font-size: 18px;
+    color: gray;
+    margin-bottom: 40px;
+    text-align: center;
+
+}
+
+.hedge-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.hedge-button {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background: linear-gradient(to bottom, black, rgb(30, 30, 30));
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.hedge-button:hover {
+    background: linear-gradient(to bottom, rgb(50, 50, 50), black);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+.pool-icon {
+    margin-right: 16px;
+    font-size: 24px;
+}
+
+.pool-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin: 10px;
+}
+
+@media (max-width: 1024px) {
+    .hedge-list {
+        width: 90%;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hedge-list {
+        width: 85%;
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 800px) {
+    .hedge-title {
+        font-size: 30px;
+    }
+    
+    .hedge-subtitle {
+        font-size: 14px;
+    }
+
+    .hedge-list {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hedge-containers {
+        flex-direction: column;
+    }
+
+    .hedge-container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .hedge-list {
+        width: 90%;
+        margin-right: 60px;
+    }
+}

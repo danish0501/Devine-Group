@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Drawer from "@mui/material/Drawer";
 import { IconButton } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import devineLogo from "../../assets/Devinegrouplogo.png";
 
 function MobileViewSidebar() {
     const [open, setOpen] = useState(false);
     const [vaultDropdownOpen, setVaultDropdownOpen] = useState(false);
+    const isMobile = useMediaQuery("(max-width:500px)");
 
     return (
         <div>
@@ -25,7 +27,9 @@ function MobileViewSidebar() {
                 anchor={"left"}
                 open={open}
                 onClose={() => setOpen(false)}
-                PaperProps={{style: {width: "100%"}}}
+                PaperProps={{
+                    style: { width: isMobile ? "100%" : "220px" }, 
+                  }}
             >
                 <div className="mobile-sidebar">
                     <div className="logo-container">
@@ -56,7 +60,7 @@ function MobileViewSidebar() {
                                 <Link to="/OffChainDeposit" className="dropdown-item">
                                     Allocate to Off-Chain Trading Venues
                                 </Link>
-                                <Link to="/hedge-pools" className="dropdown-item">
+                                <Link to="/hedge-pool" className="dropdown-item">
                                     Hedge Pools
                                 </Link>
                             </div>
