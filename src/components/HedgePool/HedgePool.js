@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./HedgePool.css";
 import Sidebar from "../Sidebar/Sidebar";
 import dg10Logo from "../../assets/DG10logo.png";
 import dg11Logo from "../../assets/DG11logo.png";
 import dg04Logo from "../../assets/DG04logo.png";
 import dg05Logo from "../../assets/DG05logo.png";
+import Navbar from "../Navbar/Navbar";
+import Header from "../Header/Header";
 
 const hedgePools = [
     { name: "DG10 Pool", logo: dg10Logo, className: "dg10-logo" },
@@ -14,12 +16,27 @@ const hedgePools = [
 ];
 
 const HedgePool = () => {
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
-        <div class="hedge-containers">
-            <div class="hedge-sidebar">
+        <div className="hedge-containers">
+            <div className="hedge-sidebar">
                 <Sidebar />
             </div>
             <div className="hedge-container">
+
+                {isMobile ? <Navbar /> : <Header />}
+
                 <h2 className="hedge-title">Hedge Pools</h2>
                 <p className="hedge-subtitle">Hedge Against The Quantitative Strategies, Earn Additional Yield</p>
 
@@ -33,7 +50,7 @@ const HedgePool = () => {
                 </div>
             </div>
         </div>
-    );
+    );  
 };
 
 export default HedgePool;

@@ -5,18 +5,18 @@
 }
 
 .hedge-sidebar {
-    width: 20%;
+    width: 22%;
     position: static;
 }
 
 .hedge-container {
-    width: 90%;
+    width: 100%;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 30px 20px;
     background: white;
     color: black;
 }
@@ -26,6 +26,7 @@
     font-weight: bold;
     margin-bottom: 8px;
     text-align: center;
+    margin-top: 30px;
 }
 
 .hedge-subtitle {
@@ -76,34 +77,54 @@
     width: 32px;
     height: 32px;
     object-fit: contain;
-    margin: 10px;
+    margin: 15px;
 }
 
 @media (max-width: 1024px) {
+    .hedge-sidebar {
+        width: 25%;
+    }
+
+    .hedge-container {
+        width: 60%;
+    }
+
     .hedge-list {
         width: 90%;
-        margin-left: 50px;
     }
 }
 
 @media (max-width: 900px) {
+    .hedge-sidebar {
+        width: 28%;
+    }
+
+    .hedge-container {
+        width: 50%;
+    }
+
     .hedge-list {
-        width: 85%;
-        margin-left: 80px;
+        width: 95%;
+        margin-left: 30px;
     }
 }
 
 @media (max-width: 800px) {
+    .hedge-sidebar {
+        width: 31%;
+    }
+
     .hedge-title {
         font-size: 30px;
     }
-    
+
     .hedge-subtitle {
         font-size: 14px;
     }
 
     .hedge-list {
-        width: 80%;
+        width: 100%;
+        margin-left: 20px;
     }
 }
 
@@ -117,8 +138,12 @@
         padding: 0;
     }
 
+    .hedge-title {
+        margin-top: 70px;
+    }
+
     .hedge-list {
         width: 90%;
-        margin-right: 60px;
+        margin-right: 0px;
     }
 }

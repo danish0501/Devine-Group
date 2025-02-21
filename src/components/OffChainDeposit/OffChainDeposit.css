@@ -11,35 +11,13 @@
 
 .offchain {
     background-color: var(--white-color);
-    width: 90%;
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.header {
-    width: 100%;
-    box-shadow: 0 0 20px rgb(123, 123, 123);
-    background: var(--black-color);
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    border: 2px solid #e4dbdb;
-}
-
-.network-info {
-    background: var(--black-color);
-    padding: 10px 20px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    font-size: 12px;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 2);
-    border: 0.2px solid #ffffff;
 }
 
 .metrics-bar {
@@ -244,7 +222,7 @@
         margin: 20px auto 10px auto;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, auto);
+        grid-template-rows: repeat(2, 1fr);
         gap: 20px;
         width: 100%;
         max-width: 1000px;
@@ -252,19 +230,17 @@
         justify-content: center;
         align-items: center;
     }
-    
+
     .metric {
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 15px;
         font-size: 12px;
-        min-width: 150px;
-        height: 40px;
-        width: 100%; 
-        white-space: nowrap;
-        overflow: hidden;
+        width: 100%;
+        height: 60px;
+        background: #f4f4f4;
+        border-radius: 8px;
     }
 }
 
@@ -279,13 +255,9 @@
         margin-left: 40px;
     }
 
-    .header {
-        margin-left: 10px;
-    }
-
     .metrics-bar {
         max-width: 500px;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, auto);
     }
 }
@@ -293,22 +265,15 @@
 @media (max-width: 768px) {
     .offchain {
         margin-left: 0px;
+        width: 100%;
     }
 
     .offchain-container {
         flex-direction: column;
     }
 
-    .header {
-        margin-left: 0px;
-    }
-
     .offchain-sidebar {
         width: 20%;
-    }
-
-    .offchain {
-        width: 100%;
     }
 
     .metrics-bar {

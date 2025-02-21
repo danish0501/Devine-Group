@@ -11,21 +11,9 @@
 
 .reserve {
     background-color: var(--white-color);
-    width: 80%;
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
-}
-
-.reserve-header {
-    width: 100%;
-    background: black;
-    box-shadow: 0 0 20px rgb(123, 123, 123);
-    border-radius: 1px;
-    border: 2px solid #e4dbdb;
-    padding: 5px;
-    height: 40px;
-    overflow: hidden;
-    display: flex;
 }
 
 .reserve-intro-section {
@@ -37,12 +25,12 @@
 }
 
 .reserve-intro-section h2 {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
 .reserve-intro-section p {
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
 }
 
@@ -225,6 +213,10 @@
 }
 
 @media (max-width: 1024px) {
+    .reserve-sidebar {
+        width: 25%;
+    }
+
     .reserve {
         margin-left: 60px;
     }
@@ -262,6 +254,10 @@
     .reserve {
         width: 100%;
         margin-left: 0;
+    }
+
+    .reserve-intro-section {
+        margin-top: 60px;
     }
 }
 

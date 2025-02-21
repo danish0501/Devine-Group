@@ -11,28 +11,9 @@
 
 .portfolio {
     background-color: var(--white-color);
-    width: 80%;
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
-}
-
-.network-info {
-    background: var(--black-color);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: var(--white-color);
-    height: 20px;
-    box-shadow: 0 0 10px rgb(123, 123, 123);
-}
-
-.network-info .connect-wallet {
-    padding: 5px 15px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
 .portfolio-intro-section {
@@ -282,10 +263,11 @@
 
     .portfolio-intro-section {
         font-size: 18px;
+        margin-top: 60px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .portfolio {
         padding: 10px;
     }
@@ -295,7 +277,6 @@
     }
 
     .portfolio-intro-section {
-        margin-top: 15px;
         margin-bottom: 20px;
         font-size: 16px;
     }

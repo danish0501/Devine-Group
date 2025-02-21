@@ -50,8 +50,6 @@ const Sidebar = () => {
                     Switch to Theme
                 </button>
             </div>
-
-            <MobileViewSidebar />
         </div>
     );
 };

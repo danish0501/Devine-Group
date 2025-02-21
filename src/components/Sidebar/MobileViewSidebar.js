@@ -19,7 +19,7 @@ function MobileViewSidebar() {
                     setOpen(true);
                 }}
             >
-                <MenuRoundedIcon style={{ fontSize: "32px", color: "black" }} />
+                <MenuRoundedIcon style={{ fontSize: "32px", color: "white" }} />
             </IconButton>
 
             {/* Drawer Component */}

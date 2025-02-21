@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import "./Overview.css";
 import { Link } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
+import Navbar from '../Navbar/Navbar';
+import Header from '../Header/Header';
 import FloatingIcon from '../FloatingIcons/FloatingIcon';
 import dg10Logo from "../../assets/DG10logo.png";
 import dg11Logo from "../../assets/DG11logo.png";
@@ -12,6 +14,7 @@ import dg05Logo from "../../assets/DG05logo.png";
 function OverviewStrategies() {
   const [selectedStrategy, setSelectedStrategy] = useState(null);
   const [account, setAccount] = useState(null); // Wallet connection state
+   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const openModal = (strategy) => {
     setSelectedStrategy(strategy);
@@ -107,15 +110,25 @@ function OverviewStrategies() {
     },
   ];
 
+   useEffect(() => {
+          const handleResize = () => {
+              setIsMobile(window.innerWidth <= 768);
+          };
+  
+          window.addEventListener("resize", handleResize);
+          return () => window.removeEventListener("resize", handleResize);
+      }, []);
+
   return (
     <div className="overview-container">
       <div className="overview-sidebar">
         <Sidebar />
       </div>
       <div className="overview">
-        <div className="header"></div>
 
-        <div className="intro-section">
+      {isMobile ? <Navbar /> : <Header />}
+
+        <div className="overview-intro-section">
           <h2>Off-Chain Systematic Investment Vaults</h2>
           <p>Allocate to institutional-grade off-chain RWA systematic investment strategies, on-chain.</p>
         </div>

@@ -13,35 +13,24 @@
 
 .overview {
     background-color: var(--white-color);
-    width: 82%;
+    width: 90%;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.header {
-    background: var(--black-color);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: var(--white-color);
-    height: 40px;
-    margin-top: 15px;
-    box-shadow: 0 0 10px rgb(123, 123, 123);
-}
-
-.intro-section {
+.overview-intro-section {
     text-align: center;
     margin: 5px auto;
     width: 100%;
     padding-top: 20px;
 }
 
-.intro-section h2 {
+.overview-intro-section h2 {
     font-size: 30px;
     margin-bottom: 10px;
 }
 
-.intro-section p {
+.overview-intro-section p {
     font-size: 18px;
 }
 
@@ -287,16 +276,12 @@
         margin-left: 0px;
     }
 
-    .header {
-        height: 40px;
-        margin-top: 0px;
-    }
-
-    .intro-section h2 {
+    .overview-intro-section h2 {
         font-size: 26px;
+        margin-top: 60px;
     }
 
-    .intro-section p {
+    .overview-intro-section p {
         font-size: 16px;
     }
 
@@ -325,12 +310,12 @@
     }
 }
 
-@media (max-width: 480px) {
-    .intro-section h2 {
+@media (max-width: 500px) {
+    .overview-intro-section h2 {
         font-size: 22px;
     }
 
-    .intro-section p {
+    .overview-intro-section p {
         font-size: 14px;
     }
 

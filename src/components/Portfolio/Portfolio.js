@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import "./Portfolio.css";
 import Sidebar from '../Sidebar/Sidebar';
+import Navbar from '../Navbar/Navbar';
+import Header from '../Header/Header';
 import FloatingIcon from '../FloatingIcons/FloatingIcon';
 import dg10Logo from "../../assets/DG10logo.png";
 import dg11Logo from "../../assets/DG11logo.png";
 import dg04Logo from "../../assets/DG04logo.png";
 import dg05Logo from "../../assets/DG05logo.png";
 
+
 const Portfolio = () => {
     const [account, setAccount] = useState(null); // Wallet connection state
     const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
     const [selectedStrategy, setSelectedStrategy] = useState(null); // Store selected strategy for modal
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     // Dynamically add a class to the body when Portfolio page is active
     useEffect(() => {
@@ -20,10 +24,6 @@ const Portfolio = () => {
             document.body.classList.remove('portfolio-page'); // Remove class when leaving the page
         };
     }, []);
-
-    const connectWallet = () => {
-        setAccount("0x1234567890abcdef"); // Mock account for demonstration
-    };
 
     const portfolioData = [
         {
@@ -58,22 +58,23 @@ const Portfolio = () => {
         setSelectedStrategy(null);
     };
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div className='portfolio-container'>
             <div className="portfolio-sidebar">
                 <Sidebar />
             </div>
             <div className="portfolio">
-                {/* Header section */}
-                <div className={`header ${account ? 'connected' : ''}`} onClick={connectWallet} style={{ cursor: "pointer" }}>
-                    <div className="network-info">
-                        {account ? (
-                            <span className='connect-wallet'>{account}</span>
-                        ) : (
-                            <span className='connect-wallet'>Connect Wallet</span>
-                        )}
-                    </div>
-                </div>
+
+                {isMobile ? <Navbar /> : <Header />}
 
                 <div className="portfolio-intro-section">
                     <h2>Portfolio Overview</h2>

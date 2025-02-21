@@ -3,6 +3,8 @@ import "./OffChainDeposit.css";
 import { Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import FloatingIcon from "../FloatingIcons/FloatingIcon";
+import Navbar from "../Navbar/Navbar";
+import Header from "../Header/Header";
 
 // Import images for both light and dark themes
 import dg10Dark from "../../assets/DG10logo.png";
@@ -57,6 +59,7 @@ function OffChainDeposit() {
     const [loadingDeposit, setLoadingDeposit] = useState(false);
     const [loadingWithdraw, setLoadingWithdraw] = useState(false);
     const [theme, setTheme] = useState("light"); // Manage theme state
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     const setVaultInstance = (vaultAddress) => {
         try {
@@ -151,17 +154,23 @@ function OffChainDeposit() {
         return theme === "light" ? WithdrawIconLight : WithdrawIconDark;
     };
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div className="offchain-container" data-theme={theme}>
-            <div class="offchain-sidebar">
+            <div className="offchain-sidebar">
                 <Sidebar />
             </div>
             <div className="offchain">
-                <div className="header">
-                    <div className="network-info">
-                        <span>Connect Wallet</span>
-                    </div>
-                </div>
+
+                {isMobile ? <Navbar /> : <Header />}
 
                 <div className="metrics-bar">
                     <div className="metric">Sharpe: 3.54</div>

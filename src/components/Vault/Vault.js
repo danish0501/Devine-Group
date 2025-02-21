@@ -24,6 +24,8 @@ import DepositIconLight from "../../assets/DepositIconWB.png";
 import DepositIconDark from "../../assets/DepositIcon.png";
 import VaultJSON from "../../ContractAbi/DG10Vault.json";
 import ERC20JSON from "../../ContractAbi/ERC20.json";
+import Navbar from "../Navbar/Navbar";
+import Header from "../Header/Header";
 
 // List of vaults with their names and contract addresses
 const VAULTS = [
@@ -57,6 +59,7 @@ function Vault() {
     const [loadingDeposit, setLoadingDeposit] = useState(false);
     const [loadingWithdraw, setLoadingWithdraw] = useState(false);
     const [theme, setTheme] = useState("light"); // Manage theme state
+     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     useEffect(() => {
         if (window.ethereum) {
@@ -197,20 +200,26 @@ function Vault() {
         return theme === "light" ? WithdrawIconLight : WithdrawIconDark;
     };
 
+     useEffect(() => {
+            const handleResize = () => {
+                setIsMobile(window.innerWidth <= 768);
+            };
+    
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }, []);
+
     return (
         <div className="vault-container" data-theme={theme}>
-            <div class="vault-sidebar">
+            <div className="vault-sidebar">
                 <Sidebar />
             </div>
             <div className="vault">
-                <div className="header" onClick={connectWallet} style={{ cursor: "pointer" }}>
-                    <div className="network-info">
-                        {account ? <span>{account}</span> : <span>Connect Wallet</span>}
-                    </div>
-                </div>
+
+            {isMobile ? <Navbar /> : <Header />}
 
                 <div className="metrics-bar">
-                    <div className="metric">Sharpe: 3.54</div>
+                    <div className="metric" style={{marginLeft: "10px"}}>Sharpe: 3.54</div>
                     <div className="metric">Max DD: -5.00%</div>
                     <div className="metric">Vault AUM: {vaultStats.totalAssets} ETH</div>
                     <div className="metric">Providers: Algoz | Copper Custody</div>

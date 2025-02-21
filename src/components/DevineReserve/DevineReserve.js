@@ -3,16 +3,19 @@ import "./DevineReserve.css";
 import { Link } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import FloatingIcon from '../FloatingIcons/FloatingIcon';
-import dg10Logo from "../../assets/DG10logo.png"; 
-import dg11Logo from "../../assets/DG11logo.png"; 
-import dg04Logo from "../../assets/DG04logo.png"; 
-import dg05Logo from "../../assets/DG05logo.png"; 
-import dollar from "../../assets/Dollar.png"; 
+import dg10Logo from "../../assets/DG10logo.png";
+import dg11Logo from "../../assets/DG11logo.png";
+import dg04Logo from "../../assets/DG04logo.png";
+import dg05Logo from "../../assets/DG05logo.png";
+import dollar from "../../assets/Dollar.png";
 import devineLogo from "../../assets/Devinegrouplogo.png";
+import Navbar from '../Navbar/Navbar';
+import Header from '../Header/Header';
 
 function DevineReserve() {
     const [selectedReserve, setSelectedReserve] = useState(null);
     const [account, setAccount] = useState(null); // Wallet connection state
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     const openModal = (reserve) => {
         setSelectedReserve(reserve);
@@ -142,13 +145,24 @@ function DevineReserve() {
 
     ];
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div className="reserve-container">
             <div class="reserve-sidebar">
                 <Sidebar />
             </div>
             <div className="reserve">
-                <div className="reserve-header"></div>
+
+                {isMobile ? <Navbar /> : <Header />}
+
                 <div className="reserve-intro-section">
                     <h2>Proof Of Reserves</h2>
                     <p>Search The Devine Proof Of Reserves</p>
