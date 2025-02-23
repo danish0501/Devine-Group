@@ -197,18 +197,18 @@
 @media (max-width: 1024px) {
     .offchain-metrics-bar {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        grid-template-rows: repeat(2, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 20px;
         width: 100%;
         padding: 20px;
     }
-    
+
     .offchain-metric {
         font-size: 12px;
         width: 100%;
-        background: #FFF; 
-        border-radius: 8px; 
+        background: #FFF;
+        border-radius: 8px;
     }
 
     .offchain-containers {
@@ -229,7 +229,7 @@
 @media (max-width: 800px) {
     .offchain-metrics-bar {
         max-width: 700px;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, auto);
     }
 
@@ -255,21 +255,26 @@
 }
 
 @media (max-width: 500px) {
+
     .offchain-intro-section h2,
     .offchain-intro-section p {
         font-size: 14px;
     }
+
+    .offchain-metrics-bar {
+        display: none;
+    }
+
+    .offchain-intro-section {
+        margin-top: 70px;
+    }
+
+    .offchain-intro-section h2 {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 425px) {
-    .offchain-metric {
-        font-size: 8px;
-        font-weight: 500;
-    }
-
-    .offchain-containers {
-        max-width: 100%;
-    }
 
     .offchain-intro-section h2,
     .offchain-intro-section p {
@@ -290,15 +295,11 @@
 }
 
 @media (max-width: 375px) {
-    .offchain-metrics-bar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+    .offchain-intro-section h2 {
+        font-size: 14px;
     }
 
-    .offchain-metric {
+    .offchain-intro-section p {
         font-size: 12px;
     }
 
@@ -320,9 +321,6 @@
 }
 
 @media (max-width: 320px) {
-    .offchain-metric {
-        font-size: 11px;
-    }
 
     .offchain-intro-section h2,
     .offchain-intro-section p {

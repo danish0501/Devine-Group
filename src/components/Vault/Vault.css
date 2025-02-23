@@ -307,14 +307,17 @@
     .vault-allocate-offchain-button {
         right: 50%;
     }
+
+    .vault-metrics-bar {
+        display: none;
+    }
+
+    .vault-intro-section {
+        margin-top: 70px;
+    }
 }
 
 @media (max-width: 425px) {
-    .vault-metric {
-        font-size: 8px;
-        font-weight: 500;
-    }
-
     .vault-allocate-offchain-button {
         right: 40%;
     }
@@ -337,16 +340,8 @@
 }
 
 @media (max-width: 375px) {
-    .vault-metrics-bar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .vault-metric {
-        font-size: 12px;
+    .vault-intro-section h2 {
+        font-size: 22px;
     }
 
     .vault-header {
@@ -367,8 +362,12 @@
 }
 
 @media (max-width: 320px) {
-    .vault-metric {
-        font-size: 11px;
+    .vault-intro-section h2 {
+        font-size: 18px;
+    }
+
+    .vault-intro-section p {
+        font-size: 14px;
     }
 
     .input-group img {

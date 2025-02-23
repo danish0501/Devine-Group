@@ -5,6 +5,28 @@
 }
 
 :root {
-  --black-color: #000000;
-  --white-color: #FFFFFF;
+  --black-color: #000;
+  --white-color: #FFF;
 }
+
+[data-theme="dark"] {
+  --black-color: #FFF;
+  --white-color: #000;
+}
+
+[data-theme="light"] {
+  --black-color: #000;
+  --white-color: #FFF;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+

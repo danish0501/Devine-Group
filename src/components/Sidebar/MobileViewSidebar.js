@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
@@ -11,6 +11,31 @@ function MobileViewSidebar() {
     const [open, setOpen] = useState(false);
     const [vaultDropdownOpen, setVaultDropdownOpen] = useState(false);
     const isMobile = useMediaQuery("(max-width:500px)");
+    const [darkMode, setDarkMode] = useState(
+        localStorage.getItem("theme") === "dark"
+    );
+
+    useEffect(() => {
+        if (darkMode) {
+            setDark();
+        } else {
+            setLight();
+        }
+    }, [darkMode]); // Re-run when darkMode changes
+
+    const handleTheme = () => {
+        setDarkMode((prevMode) => !prevMode); // Toggle state
+    };
+
+    const setDark = () => {
+        localStorage.setItem("theme", "dark");
+        document.documentElement.setAttribute("data-theme", "dark");
+    };
+
+    const setLight = () => {
+        localStorage.setItem("theme", "light");
+        document.documentElement.setAttribute("data-theme", "light");
+    };
 
     return (
         <div>
@@ -28,8 +53,8 @@ function MobileViewSidebar() {
                 open={open}
                 onClose={() => setOpen(false)}
                 PaperProps={{
-                    style: { width: isMobile ? "100%" : "220px" }, 
-                  }}
+                    style: { width: isMobile ? "100%" : "220px" },
+                }}
             >
                 <div className="mobile-sidebar">
                     <div className="logo-container">
@@ -67,8 +92,8 @@ function MobileViewSidebar() {
                         )}
                     </div>
 
-                    <button className="theme-toggle-button" >
-                        Switch to Theme
+                    <button className="theme-toggle-button" onClick={handleTheme}>
+                        {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
                     </button>
                 </div>
             </Drawer>
