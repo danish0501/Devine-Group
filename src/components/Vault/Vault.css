@@ -21,6 +21,7 @@
 .vault {
     width: 100%;
     padding: 30px;
+    height: 100vh;
 }
 
 .vault-metrics-bar {

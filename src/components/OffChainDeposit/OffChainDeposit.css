@@ -21,6 +21,7 @@
 .offchain {
     width: 100%;
     padding: 30px;
+    height: 100vh;
 }
 
 .offchain-metrics-bar {

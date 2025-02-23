@@ -21,6 +21,7 @@
 .overview {
     width: 100%;
     padding: 30px;
+    height: 100vh;
 }
 
 .overview-intro-section {
