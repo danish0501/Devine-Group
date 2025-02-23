@@ -5,45 +5,48 @@
 }
 
 .reserve-sidebar {
-    width: 20%;
+    width: 100%;
+    max-width: 250px;
     position: static;
 }
 
-.reserve {
-    background-color: var(--white-color);
+.reserves {
     width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
+}
+
+.reserve {
+    width: 100%;
+    padding: 30px;
 }
 
 .reserve-intro-section {
     text-align: center;
-    margin: 5px 0;
-    width: 100%;
-    padding-top: 20px;
-    color: black;
+    color: var(--black-color);
+    margin: 30px 0;
+    font-size: 20px;
 }
 
 .reserve-intro-section h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-weight: bolder;
 }
 
-.reserve-intro-section p {
-    font-size: 18px;
-    margin: 0;
+.overview-intro-section p {
+    font-weight: 400;
 }
 
 .reserve-overview {
+    width: 100%;
     display: grid;
-    margin: 40px 100px 0;
     grid-template-rows: 1fr 1fr;
     grid-auto-flow: column;
     gap: 30px;
+    display: flex;
     justify-items: center;
     align-items: center;
-    padding: 0 20px;
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -53,14 +56,13 @@
     background: black;
     border-radius: 1px;
     padding: 20px;
-    margin-top: 2px;
-    width: calc(50% - 30px);
+    width: 100%;
+    max-width: 45%;
     box-shadow: 0 0 20px rgb(123, 123, 123);
     border: 2px solid #d9d9d9;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
     cursor: pointer;
     height: 300px;
     position: relative;
@@ -83,18 +85,9 @@
     transition: all 0.5s ease;
 }
 
-.reserve-box h3 {
-    font-size: 1.5rem;
+.reserve-box-header h3 {
+    font-size: 24px;
     color: #fff;
-    margin: 0;
-    position: relative;
-    text-align: left;
-    width: 100%;
-    padding: 0;
-}
-
-.reserve-box h3::after {
-    display: none;
 }
 
 .reserve-metrics {
@@ -103,10 +96,7 @@
     position: absolute;
     bottom: 10px;
     left: 10px;
-    width: 100%;
-    text-align: left;
-    padding: 0 10px;
-    box-sizing: border-box;
+    padding: 10px;
 }
 
 .reserve-modal-overlay {
@@ -143,7 +133,7 @@
     align-items: center;
     padding: 10px;
     border-radius: 8px 8px 0 0;
-    color: var(--white-color);
+    color: #fff;
 }
 
 .reserve-close-modal {
@@ -171,7 +161,7 @@
     border-radius: 8px;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    color: var(--white-color);
+    color: #FFF;
 }
 
 .reserve-details-box p {
@@ -194,12 +184,12 @@
 
 .reserve-returns-table th {
     background-color: #333;
-    color: var(--white-color);
+    color: #FFF;
 }
 
 .reserve-returns-table td {
     background-color: #222;
-    color: var(--white-color);
+    color: #FFF;
 }
 
 .reserve-returns-table tr:nth-child(even) {
@@ -212,37 +202,19 @@
     font-family: Arial, sans-serif;
 }
 
-@media (max-width: 1024px) {
-    .reserve-sidebar {
-        width: 25%;
-    }
-
-    .reserve {
-        margin-left: 60px;
-    }
-
-    .reserve-overview {
-        margin: 20px 0px 0;
-    }
-}
-
 @media (max-width: 900px) {
-    .reserve {
-        margin-left: 80px;
-    }
-
-    .reserve-box {
-        height: 250px;
-    }
-
-    .reserve-box h3 {
+    .reserve-box-header h3 {
         font-size: 20px;
     }
 }
 
 @media (max-width: 800px) {
-    .reserve {
-        margin-left: 100px;
+    .reserve-box {
+        height: 250px;
+    }
+
+    .reserve-box-header h3 {
+        font-size: 16px;
     }
 }
 
@@ -251,23 +223,27 @@
         flex-direction: column;
     }
 
-    .reserve {
-        width: 100%;
-        margin-left: 0;
-    }
-
     .reserve-intro-section {
         margin-top: 60px;
     }
 }
 
-@media (max-width: 500px) {
-    .reserve-overview {
-        grid-auto-flow: row;
-        grid-auto-columns: minmax(250px, 1fr)
+@media (max-width: 425px) {
+    .reserve-intro-section {
+        font-size: 18px;
     }
 
     .reserve-box {
-        width: 100%;
+        max-width: 100%;
+    }
+
+    .reserve-box {
+        height: 220px;
+    }
+}
+
+@media (max-width: 320px) {
+    .reserve-intro-section {
+        font-size: 16px;
     }
 }

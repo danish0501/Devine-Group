@@ -7,6 +7,7 @@ import dg04Logo from "../../assets/DG04logo.png";
 import dg05Logo from "../../assets/DG05logo.png";
 import Navbar from "../Navbar/Navbar";
 import Header from "../Header/Header";
+import FloatingIcon from "../FloatingIcons/FloatingIcon";
 
 const hedgePools = [
     { name: "DG10 Pool", logo: dg10Logo, className: "dg10-logo" },
@@ -29,28 +30,36 @@ const HedgePool = () => {
     }, []);
 
     return (
-        <div className="hedge-containers">
+        <div className="hedge-container">
             <div className="hedge-sidebar">
                 <Sidebar />
             </div>
-            <div className="hedge-container">
+            <div className="hedge-pools">
+                <div className="hedge-pool">
 
-                {isMobile ? <Navbar /> : <Header />}
+                    {isMobile ? <Navbar /> : <Header />}
 
-                <h2 className="hedge-title">Hedge Pools</h2>
-                <p className="hedge-subtitle">Hedge Against The Quantitative Strategies, Earn Additional Yield</p>
+                    <div className="hedge-intro-section">
+                        <h2>Hedge Pools</h2>
+                        <p>Hedge Against The Quantitative Strategies, Earn Additional Yield</p>
+                    </div>
 
-                <div className="hedge-list">
-                    {hedgePools.map((pool, index) => (
-                        <button key={index} className="hedge-button">
-                            {pool.logo && <img src={pool.logo} alt={pool.name} className={`pool-logo ${pool.className}`} />}
-                            {pool.name}
-                        </button>
-                    ))}
+                    <div className="hedge-list">
+                        {hedgePools.map((pool, index) => (
+                            <button key={index} className="hedge-button">
+                                {pool.logo && <img src={pool.logo} alt={pool.name} className={`pool-logo ${pool.className}`} />}
+                                {pool.name}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
+
+            {/* Floating Icons */}
+            <FloatingIcon />
+
         </div>
-    );  
+    );
 };
 
 export default HedgePool;

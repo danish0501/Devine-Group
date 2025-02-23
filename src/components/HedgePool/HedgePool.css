@@ -1,40 +1,42 @@
-.hedge-containers {
+.hedge-container {
     display: flex;
     width: 100%;
     overflow-x: hidden;
 }
 
 .hedge-sidebar {
-    width: 22%;
+    width: 100%;
+    max-width: 250px;
     position: static;
 }
 
-.hedge-container {
+.hedge-pools {
     width: 100%;
-    flex-grow: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px 20px;
-    background: white;
-    color: black;
+    background-color: var(--white-color);
 }
 
-.hedge-title {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-align: center;
-    margin-top: 30px;
+.hedge-pool {
+    width: 100%;
+    padding: 30px;
+    height: 100vh;
 }
 
-.hedge-subtitle {
-    font-size: 18px;
-    color: gray;
-    margin-bottom: 40px;
+.hedge-intro-section {
     text-align: center;
+    color: var(--black-color);
+    margin: 40px 0;
+    font-size: 20px;
+}
 
+.hedge-intro-section h2 {
+    font-weight: bolder;
+}
+
+.hedge-intro-section p {
+    font-weight: 400;
 }
 
 .hedge-list {
@@ -68,82 +70,45 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
-.pool-icon {
-    margin-right: 16px;
-    font-size: 24px;
-}
-
 .pool-logo {
     width: 32px;
     height: 32px;
     object-fit: contain;
-    margin: 15px;
-}
-
-@media (max-width: 1024px) {
-    .hedge-sidebar {
-        width: 25%;
-    }
-
-    .hedge-container {
-        width: 60%;
-    }
-
-    .hedge-list {
-        width: 90%;
-    }
-}
-
-@media (max-width: 900px) {
-    .hedge-sidebar {
-        width: 28%;
-    }
-
-    .hedge-container {
-        width: 50%;
-    }
-
-    .hedge-list {
-        width: 95%;
-        margin-left: 30px;
-    }
-}
-
-@media (max-width: 800px) {
-    .hedge-sidebar {
-        width: 31%;
-    }
-
-    .hedge-title {
-        font-size: 30px;
-    }
-
-    .hedge-subtitle {
-        font-size: 14px;
-    }
-
-    .hedge-list {
-        width: 100%;
-        margin-left: 20px;
-    }
+    margin: 25px;
 }
 
 @media (max-width: 768px) {
-    .hedge-containers {
+    .hedge-container {
         flex-direction: column;
     }
 
-    .hedge-container {
-        width: 100%;
-        padding: 0;
+    .hedge-intro-section {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hedge-intro-section p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .hedge-intro-section h2 {
+        font-size: 24px;
     }
 
-    .hedge-title {
-        margin-top: 70px;
+    .hedge-intro-section p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 425px) {
+    .hedge-intro-section h2 {
+        font-size: 24px;
     }
 
-    .hedge-list {
-        width: 90%;
-        margin-right: 0px;
+    .hedge-intro-section p {
+        font-size: 14px;
     }
 }

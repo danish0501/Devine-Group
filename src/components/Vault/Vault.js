@@ -59,7 +59,7 @@ function Vault() {
     const [loadingDeposit, setLoadingDeposit] = useState(false);
     const [loadingWithdraw, setLoadingWithdraw] = useState(false);
     const [theme, setTheme] = useState("light"); // Manage theme state
-     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     useEffect(() => {
         if (window.ethereum) {
@@ -200,107 +200,111 @@ function Vault() {
         return theme === "light" ? WithdrawIconLight : WithdrawIconDark;
     };
 
-     useEffect(() => {
-            const handleResize = () => {
-                setIsMobile(window.innerWidth <= 768);
-            };
-    
-            window.addEventListener("resize", handleResize);
-            return () => window.removeEventListener("resize", handleResize);
-        }, []);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
-        <div className="vault-container" data-theme={theme}>
+        <div className="vault-container">
             <div className="vault-sidebar">
                 <Sidebar />
             </div>
-            <div className="vault">
+            <div className="vaults">
+                <div className="vault">
 
-            {isMobile ? <Navbar /> : <Header />}
+                    {isMobile ? <Navbar /> : <Header />}
 
-                <div className="metrics-bar">
-                    <div className="metric" style={{marginLeft: "10px"}}>Sharpe: 3.54</div>
-                    <div className="metric">Max DD: -5.00%</div>
-                    <div className="metric">Vault AUM: {vaultStats.totalAssets} ETH</div>
-                    <div className="metric">Providers: Algoz | Copper Custody</div>
-                    <div className="metric">Avg 1Y Annualized APR: 30%</div>
-                    <div className="metric">Redemptions: Liquid</div>
-                </div>
-
-                <button className="allocate-offchain-button">
-                    <Link to="/OffChainDeposit">Allocate to off-chain trading venues</Link>
-                </button>
-
-                <div className="intro-section">
-                    <h2>Deposit ETH, Receive vDG10</h2>
-                    <p>Allocate to DG10 off-chain systematic investment strategy.</p>
-                </div>
-
-                <div className="vault-containers">
-                    <div className="vault-header">
-                        <img src={getVaultLogo()} alt="Vault Logo" className="vault-icon" />
-                        <select
-                            className="vault-select"
-                            value={selectedVault.address}
-                            onChange={(e) => {
-                                const selected = VAULTS.find((vault) => vault.address === e.target.value);
-                                setSelectedVault(selected);
-                            }}
-                        >
-                            {VAULTS.map((vault) => (
-                                <option key={vault.address} value={vault.address}>
-                                    {vault.name}
-                                </option>
-                            ))}
-                        </select>
+                    <div className="vault-metrics-bar">
+                        <div className="vault-metric">Sharpe: 3.54</div>
+                        <div className="vault-metric">Max DD: -5.00%</div>
+                        <div className="vault-metric">Vault AUM: {vaultStats.totalAssets} ETH</div>
+                        <div className="vault-metric">Providers: Algoz | Copper Custody</div>
+                        <div className="vault-metric">Avg 1Y Annualized APR: 30%</div>
+                        <div className="vault-metric">Redemptions: Liquid</div>
                     </div>
 
-                    <div className="input-group">
-                        <img
-                            src={
-                                selectedVault.name.includes("USDT")
-                                    ? usdtLogo
-                                    : selectedVault.name.includes("USDC")
-                                        ? usdcLogo
-                                        : selectedVault.name.includes("WBTC")
-                                            ? wbtcLogo
-                                            : ethLogo
-                            }
-                            alt="Token Logo"
-                        />
-                        <input
-                            type="number"
-                            placeholder={`Enter ${selectedVault.name.split(" ")[1]} amount`}
-                            value={ethAmount}
-                            onChange={(e) => setEthAmount(e.target.value)}
-                        />
+                    <button className="vault-allocate-offchain-button">
+                        <Link to="/OffChainDeposit">Allocate to off-chain trading venues</Link>
+                    </button>
+
+                    <div className="vault-intro-section">
+                        <h2>Deposit ETH, Receive vDG10</h2>
+                        <p>Allocate to DG10 off-chain systematic investment strategy.</p>
                     </div>
 
-                    <button className="toggle-button" onClick={() => setIsDeposit(!isDeposit)}>
-                        <img src={getActionIcon()} alt="Action Icon" className="action-icon" />
-                    </button>
+                    <div className="vault-inner-container">
+                        <div className="vault-containers">
+                            <div className="vault-header">
+                                <img src={getVaultLogo()} alt="Vault Logo" className="vault-icon" />
+                                <select
+                                    className="vault-select"
+                                    value={selectedVault.address}
+                                    onChange={(e) => {
+                                        const selected = VAULTS.find((vault) => vault.address === e.target.value);
+                                        setSelectedVault(selected);
+                                    }}
+                                >
+                                    {VAULTS.map((vault) => (
+                                        <option key={vault.address} value={vault.address}>
+                                            {vault.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
 
-                    <button
-                        className="stake-button"
-                        onClick={isDeposit ? stake : withdraw}
-                        disabled={loadingApproval || loadingDeposit || loadingWithdraw}
-                    >
-                        {loadingApproval
-                            ? "Approving..."
-                            : loadingDeposit
-                                ? "Depositing..."
-                                : loadingWithdraw
-                                    ? "Withdrawing..."
-                                    : isDeposit
-                                        ? "Deposit"
-                                        : "Withdraw"}
-                    </button>
+                            <div className="input-group">
+                                <img
+                                    src={
+                                        selectedVault.name.includes("USDT")
+                                            ? usdtLogo
+                                            : selectedVault.name.includes("USDC")
+                                                ? usdcLogo
+                                                : selectedVault.name.includes("WBTC")
+                                                    ? wbtcLogo
+                                                    : ethLogo
+                                    }
+                                    alt="Token Logo"
+                                />
+                                <input
+                                    type="number"
+                                    placeholder={`Enter ${selectedVault.name.split(" ")[1]} amount`}
+                                    value={ethAmount}
+                                    onChange={(e) => setEthAmount(e.target.value)}
+                                />
+                            </div>
 
-                    <div className="info-box">
-                        <p>You will receive: <strong>{ethAmount} vDG10</strong></p>
-                        <p>Exchange Rate: <strong>{vaultStats.exchangeRate}</strong></p>
-                        <p>Max Network Cost: <strong>$1.18</strong></p>
-                        <p>Transaction Fee: <strong>0.01%</strong></p>
+                            <button className="vault-toggle-button" onClick={() => setIsDeposit(!isDeposit)}>
+                                <img src={getActionIcon()} alt="Action Icon" className="action-icon" />
+                            </button>
+
+                            <button
+                                className="vault-stake-button"
+                                onClick={isDeposit ? stake : withdraw}
+                                disabled={loadingApproval || loadingDeposit || loadingWithdraw}
+                            >
+                                {loadingApproval
+                                    ? "Approving..."
+                                    : loadingDeposit
+                                        ? "Depositing..."
+                                        : loadingWithdraw
+                                            ? "Withdrawing..."
+                                            : isDeposit
+                                                ? "Deposit"
+                                                : "Withdraw"}
+                            </button>
+
+                            <div className="vault-info-box">
+                                <p>You will receive: <strong>{ethAmount} vDG10</strong></p>
+                                <p>Exchange Rate: <strong>{vaultStats.exchangeRate}</strong></p>
+                                <p>Max Network Cost: <strong>$1.18</strong></p>
+                                <p>Transaction Fee: <strong>0.01%</strong></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

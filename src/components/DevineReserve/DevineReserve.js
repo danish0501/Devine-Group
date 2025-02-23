@@ -156,114 +156,116 @@ function DevineReserve() {
 
     return (
         <div className="reserve-container">
-            <div class="reserve-sidebar">
+            <div className="reserve-sidebar">
                 <Sidebar />
             </div>
-            <div className="reserve">
+            <div className="reserves">
+                <div className="reserve">
 
-                {isMobile ? <Navbar /> : <Header />}
+                    {isMobile ? <Navbar /> : <Header />}
 
-                <div className="reserve-intro-section">
-                    <h2>Proof Of Reserves</h2>
-                    <p>Search The Devine Proof Of Reserves</p>
-                </div>
-
-                <div className="reserve-overview">
-                    {reserves.map((reserve, index) => (
-                        <div
-                            key={index}
-                            className="reserve-box"
-                            onClick={() => openModal(reserve)}
-                        >
-                            <img src={reserve.logo} alt={reserve.name} className="reserve-logo" />
-                            <div className="reserve-box-header">
-                                <h3>{reserve.name}</h3>
-                            </div>
-                            <div className="reserve-metrics">
-                                <p>Return YTD: <strong>{reserve.returnYTD}</strong></p>
-                                <p>Sharpe Ratio: <strong>{reserve.sharpeRatio}</strong></p>
-                                <p>Max Drawdown: <strong>{reserve.maxDrawdown}</strong></p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {selectedReserve && (
-                    <div className="reserve-modal-overlay" onClick={closeModal}>
-                        <div className="reserve-modal-content" onClick={(e) => e.stopPropagation()}>
-                            <div className="reserve-modal-header">
-                                <h3>{selectedReserve.name} Details</h3>
-                                <button className="reserve-close-modal" onClick={closeModal}>X</button>
-                            </div>
-                            <div className="reserve-modal-body">
-                                {/* Overview Section */}
-                                <div className="reserve-overview-box">
-                                    <h4>Reserve Overview</h4>
-                                    <p>{selectedReserve.overview}</p>
-                                </div>
-
-                                {/* Details Section */}
-                                <div className="reserve-details-box">
-                                    <p><strong>Return YTD:</strong> {selectedReserve.returnYTD}</p>
-                                    <p><strong>Sharpe Ratio:</strong> {selectedReserve.sharpeRatio}</p>
-                                    <p><strong>Max Drawdown:</strong> {selectedReserve.maxDrawdown}</p>
-                                    <h4>Details:</h4>
-                                    {selectedReserve.details.map((detail, index) => (
-                                        <p key={index}>{detail}</p>
-                                    ))}
-                                </div>
-
-                                <h4>Monthly Returns (Geometric Compounding)</h4>
-                                <table className="reserve-returns-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Year</th>
-                                            <th>Jan</th>
-                                            <th>Feb</th>
-                                            <th>Mar</th>
-                                            <th>Apr</th>
-                                            <th>May</th>
-                                            <th>Jun</th>
-                                            <th>Jul</th>
-                                            <th>Aug</th>
-                                            <th>Sep</th>
-                                            <th>Oct</th>
-                                            <th>Nov</th>
-                                            <th>Dec</th>
-                                            <th>Yearly</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>2024</td>
-                                            <td>-0.5%</td>
-                                            <td>3.1%</td>
-                                            <td>4.3%</td>
-                                            <td>1.8%</td>
-                                            <td>-0.9%</td>
-                                            <td>1.4%</td>
-                                            <td>2.1%</td>
-                                            <td>0.5%</td>
-                                            <td>-0.6%</td>
-                                            <td>-0.4%</td>
-                                            <td>3.4%</td>
-                                            <td>--</td>
-                                            <td>15.1%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <Link to="/vault">
-                                    <button className="vault-button">Go to Vault</button>
-                                </Link>
-                            </div>
-                        </div>
+                    <div className="reserve-intro-section">
+                        <h2>Proof Of Reserves</h2>
+                        <p>Search The Devine Proof Of Reserves</p>
                     </div>
-                )}
 
-                {/* Floating Icons */}
-                <FloatingIcon />
+                    <div className="reserve-overview">
+                        {reserves.map((reserve, index) => (
+                            <div
+                                key={index}
+                                className="reserve-box"
+                                onClick={() => openModal(reserve)}
+                            >
+                                <img src={reserve.logo} alt={reserve.name} className="reserve-logo" />
+                                <div className="reserve-box-header">
+                                    <h3>{reserve.name}</h3>
+                                </div>
+                                <div className="reserve-metrics">
+                                    <p>Return YTD: <strong>{reserve.returnYTD}</strong></p>
+                                    <p>Sharpe Ratio: <strong>{reserve.sharpeRatio}</strong></p>
+                                    <p>Max Drawdown: <strong>{reserve.maxDrawdown}</strong></p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
 
+                    {selectedReserve && (
+                        <div className="reserve-modal-overlay" onClick={closeModal}>
+                            <div className="reserve-modal-content" onClick={(e) => e.stopPropagation()}>
+                                <div className="reserve-modal-header">
+                                    <h3>{selectedReserve.name} Details</h3>
+                                    <button className="reserve-close-modal" onClick={closeModal}>X</button>
+                                </div>
+                                <div className="reserve-modal-body">
+                                    {/* Overview Section */}
+                                    <div className="reserve-overview-box">
+                                        <h4>Reserve Overview</h4>
+                                        <p>{selectedReserve.overview}</p>
+                                    </div>
+
+                                    {/* Details Section */}
+                                    <div className="reserve-details-box">
+                                        <p><strong>Return YTD:</strong> {selectedReserve.returnYTD}</p>
+                                        <p><strong>Sharpe Ratio:</strong> {selectedReserve.sharpeRatio}</p>
+                                        <p><strong>Max Drawdown:</strong> {selectedReserve.maxDrawdown}</p>
+                                        <h4>Details:</h4>
+                                        {selectedReserve.details.map((detail, index) => (
+                                            <p key={index}>{detail}</p>
+                                        ))}
+                                    </div>
+
+                                    <h4>Monthly Returns (Geometric Compounding)</h4>
+                                    <table className="reserve-returns-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Year</th>
+                                                <th>Jan</th>
+                                                <th>Feb</th>
+                                                <th>Mar</th>
+                                                <th>Apr</th>
+                                                <th>May</th>
+                                                <th>Jun</th>
+                                                <th>Jul</th>
+                                                <th>Aug</th>
+                                                <th>Sep</th>
+                                                <th>Oct</th>
+                                                <th>Nov</th>
+                                                <th>Dec</th>
+                                                <th>Yearly</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2024</td>
+                                                <td>-0.5%</td>
+                                                <td>3.1%</td>
+                                                <td>4.3%</td>
+                                                <td>1.8%</td>
+                                                <td>-0.9%</td>
+                                                <td>1.4%</td>
+                                                <td>2.1%</td>
+                                                <td>0.5%</td>
+                                                <td>-0.6%</td>
+                                                <td>-0.4%</td>
+                                                <td>3.4%</td>
+                                                <td>--</td>
+                                                <td>15.1%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <Link to="/vault">
+                                        <button className="vault-button">Go to Vault</button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Floating Icons */}
+                    <FloatingIcon />
+
+                </div>
             </div>
         </div>
     );

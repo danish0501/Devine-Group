@@ -10,13 +10,15 @@ const Header = () => {
     };
 
     return (
-        <div className={`Header ${account ? 'connected' : ''}`} onClick={connectWallet}>
-            <div className="Header-info">
-                {account ? (
-                    <span className='connect-wallet'>{account}</span>
-                ) : (
-                    <span className='connect-wallet'>Connect Wallet</span>
-                )}
+        <div className="Header" onClick={connectWallet}>
+            <div className="Header-container">
+                <div className="Header-info">
+                    {account ? (
+                        <span className='connect-wallet'>{account}</span>
+                    ) : (
+                        <span className='connect-wallet'>Connect Wallet</span>
+                    )}
+                </div>
             </div>
         </div>
     )

@@ -5,62 +5,52 @@
 }
 
 .vault-sidebar {
-    width: 17%;
+    width: 100%;
+    max-width: 250px;
     position: static;
 }
 
-.vault {
-    background-color: var(--white-color);
+.vaults {
     width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    flex: 1;
-    height: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
 }
 
-.metrics-bar {
-    background: var(--black-color);
+.vault {
+    width: 100%;
+    padding: 30px;
+}
+
+.vault-metrics-bar {
+    background: #000;
     box-shadow: 0 0 20px rgb(123, 123, 123);
     width: 100%;
-    max-width: 1600px;
-    margin: 40px auto 20px auto;
+    margin: 40px 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    gap: 15px;
     padding: 10px 20px;
     border-radius: 8px;
     border: 2px solid #e4dbdb;
 }
 
-.metric {
+.vault-metric {
     background: linear-gradient(135deg, #fafafa, #fafafa);
     padding: 10px 0px;
     border: 2px solid #e4dbdb;
     border-radius: 6px;
     color: rgb(0, 0, 0);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
     text-align: center;
-    min-width: 150px;
-    flex: 1;
-    margin: 0 10px;
+    width: 20%;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
-.metric:last-child {
-    margin-right: 0;
-}
-
-.metric:first-child {
-    margin-left: 0;
-}
-
-.allocate-offchain-button {
-    background-color: var(--white-color);
+.vault-allocate-offchain-button {
+    background-color: #FFF;
     color: #333;
     font-size: 12px;
     padding: 5px 10px;
@@ -69,52 +59,54 @@
     cursor: pointer;
     position: fixed;
     top: 85%;
-    right: 1000px;
-    transform: translateY(-50%);
+    right: 67%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.allocate-offchain-button a {
-    color: var(--black-color);
+.vault-allocate-offchain-button a {
+    color: #000;
     text-decoration: none;
 }
 
-.allocate-offchain-button:hover {
+.vault-allocate-offchain-button:hover {
     background-color: #45a049;
 }
 
-.allocate-offchain-button a:hover {
+.vault-allocate-offchain-button a:hover {
     color: #f0f0f0;
 }
 
-.intro-section {
+.vault-intro-section {
     color: var(--black-color);
     text-align: center;
-    margin: 5px 0;
     width: 100%;
-    max-width: 800px;
-    margin-top: 50px;
 }
 
-.intro-section h2 {
+.vault-intro-section h2 {
     font-size: 24px;
-    margin-bottom: 10px;
 }
 
-.intro-section p {
+.vault-intro-section p {
     font-size: 16px;
-    margin: 0;
+    font-weight: 400;
+}
+
+.vault-inner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .vault-containers {
-    background: var(--black-color);
+    background: #000;
     box-shadow: 0 0 20px rgb(123, 123, 123);
     border: 2px solid #d9d9d9;
     border-radius: 10px;
     padding: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 40%;
     text-align: center;
     margin-bottom: 20px;
     display: flex;
@@ -127,12 +119,11 @@
 .vault-header {
     display: flex;
     align-items: center;
-    background: var(--white-color);
+    background: #FFF;
     border-radius: 8px;
     padding: 10px;
     width: 100%;
-    max-width: 350px;
-    position: relative;
+    max-width: 90%;
     border: 2px solid #e4dbdb;
 }
 
@@ -150,11 +141,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--white-color);
+    background: #FFF;
     border-radius: 8px;
     padding: 10px;
     width: 100%;
-    max-width: 350px;
+    max-width: 90%;
     border: 2px solid #e4dbdb;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
@@ -185,198 +176,206 @@
     -moz--appearance: textfield;
 }
 
-.toggle-button {
-    background-size: cover;
-    background-position: center;
-    width: 100px;
-    height: 100px;
-    margin-top: 10px;
-    background-color: var(--white-color);
+.vault-toggle-button {
+    margin: 10px 0;
+    background-color: #FFF;
     border: 1px solid #555;
     border-radius: 10px;
-    width: 40px;
-    height: 40px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
-.toggle-button img {
-    width: 30px;
-    height: 30px;
+.vault-toggle-button img {
+    width: 40px;
+    height: 40px;
     object-fit: contain;
     display: inline-block;
     vertical-align: middle;
 }
 
 
-.toggle-button:hover {
-    background-color: var(--white-color);
+.vault-toggle-button:hover {
+    background-color: #FFF;
     transform: scale(1.1);
     border: 1px solid #555;
 }
 
-.stake-button {
+.vault-stake-button {
     background: linear-gradient(135deg, #ffffff, #ffffff);
     color: #000;
     font-size: 16px;
     padding: 10px;
     width: 100%;
-    max-width: 350px;
+    max-width: 90%;
     border: 2px solid #e4dbdb;
     border-radius: 8px;
     cursor: pointer;
-    margin: 15px 0 0;
 }
 
-.stake-button:hover {
-    background: var(--black-color);
-    color: var(--white-color);
+.vault-stake-button:hover {
+    background: #000;
+    color: #FFF;
     border: 2px solid #e4dbdb;
 }
 
-.info-box {
+.vault-info-box {
     font-size: 14px;
     color: #ccc;
     margin-top: 10px;
 }
 
-.info-box p {
+.vault-info-box p {
     margin: 5px 0;
 }
 
 @media (max-width: 1024px) {
-    .vault-sidebar {
-        width: 25%;
-    }
-
-    .vault {
-        width: 75%;
-        padding: 15px;
-    }
-
-    .metrics-bar {
-        margin: 20px auto 10px auto;
+    .vault-metrics-bar {
         display: grid;
         grid-template-columns: repeat(3, 1fr); 
         grid-template-rows: repeat(2, 1fr); 
         gap: 20px;
         width: 100%;
-        max-width: 1000px;
         padding: 20px;
-        justify-content: center;
-        align-items: center;
     }
     
-    .metric {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+    .vault-metric {
         font-size: 12px;
         width: 100%;
-        height: 60px;
-        background: #f4f4f4; 
+        background: #FFF; 
         border-radius: 8px; 
     }
 
-    .allocate-offchain-button {
-        right: 550px;
+    .vault-allocate-offchain-button {
+        right: 52%;
+    }
+
+    .vault-containers {
+        max-width: 70%;
     }
 }
 
 @media (max-width: 900px) {
-    .vault {
-        margin-left: 20px;
+    .vault-metric {
+        font-size: 10px;
+    }
+
+    .vault-allocate-offchain-button {
+        right: 45%;
     }
 }
 
 @media (max-width: 800px) {
-    .vault {
-        margin-left: 40px;
-    }
-
-    .header {
-        margin-left: 10px;
-    }
-
-    .metrics-bar {
+    .vault-metrics-bar {
         max-width: 700px;
         grid-template-columns: repeat(2, 1fr); 
         grid-template-rows: repeat(3, auto);
     }
 
-    .allocate-offchain-button {
-        right: 300px;
+    .vault-allocate-offchain-button {
+        right: 40%;
     }
 }
 
 @media (max-width: 768px) {
-    .vault {
-        margin-left: 0px;
-    }
-
-    .vault-container {
+     .vault-container {
         flex-direction: column;
     }
 
-    .header {
-        margin-left: 0px;
-        margin-right: 30px;
+    .vault-metrics-bar {
+        margin-top: 70px;
     }
 
-    .vault-sidebar {
-        width: 100%;
-    }
-
-    .vault {
-        width: 100%;
-    }
-
-    .metrics-bar {
-        max-width: 700px;
-        margin-right: 150px !important;
-        margin-top: 70px !important;
-    }
-
-    .allocate-offchain-button {
-        right: 500px;
+    .vault-allocate-offchain-button {
+        right: 70%;
     }
 }
 
 @media (max-width: 600px) {
-    .allocate-offchain-button {
-        right: 350px;
+    .vault-allocate-offchain-button {
+        right: 60%;
     }
 
-    .metrics-bar {
-        width: 95% !important;
-        margin-right: 100px !important;
+    .vault-containers {
+        max-width: 90%;
     }
 }
 
 @media (max-width: 500px) {
-    .allocate-offchain-button {
-        right: 250px;
+    .vault-allocate-offchain-button {
+        right: 50%;
     }
 }
 
 @media (max-width: 425px) {
-    .metrics-bar {
-        max-width: 550px;
-    }
-
-    .metric {
-        padding: 10px;
+    .vault-metric {
         font-size: 8px;
-        min-width: 100px;
         font-weight: 500;
     }
 
-    .allocate-offchain-button {
-        right: 150px;
+    .vault-allocate-offchain-button {
+        right: 40%;
+    }
+
+    .vault-containers {
+        max-width: 100%;
+    }
+
+    .vault-header {
+        max-width: 100%;
+    }
+
+    .input-group {
+        max-width: 100%;
+    }
+
+    .vault-stake-button {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .vault-metrics-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .vault-metric {
+        font-size: 12px;
+    }
+
+    .vault-header {
+        padding: 5px;
+    }
+
+    .input-group {
+        padding: 2px;
+    }
+
+    .input-group img {
+        margin-left: 4px;
+    }
+
+    .vault-stake-button {
+        padding: 7px;
+    }
+}
+
+@media (max-width: 320px) {
+    .vault-metric {
+        font-size: 11px;
+    }
+
+    .input-group img {
+        margin-left: 30px;
+    }
+
+    .vault-allocate-offchain-button {
+        right: 30%;
     }
 }

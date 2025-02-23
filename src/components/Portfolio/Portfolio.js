@@ -11,7 +11,6 @@ import dg05Logo from "../../assets/DG05logo.png";
 
 
 const Portfolio = () => {
-    const [account, setAccount] = useState(null); // Wallet connection state
     const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
     const [selectedStrategy, setSelectedStrategy] = useState(null); // Store selected strategy for modal
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -72,77 +71,79 @@ const Portfolio = () => {
             <div className="portfolio-sidebar">
                 <Sidebar />
             </div>
-            <div className="portfolio">
+            <div class="portfolios">
+                <div className="portfolio">
 
-                {isMobile ? <Navbar /> : <Header />}
+                    {isMobile ? <Navbar /> : <Header />}
 
-                <div className="portfolio-intro-section">
-                    <h2>Portfolio Overview</h2>
-                    <p>PNLs & Balances</p>
-                </div>
-
-                {/* Portfolio Boxes Section */}
-                <div className="portfolio-boxes">
-                    {portfolioData.map((data, index) => (
-                        <div key={index} className="portfolio-box">
-                            <h2>{data.title}</h2>
-                            <div className="portfolio-strategies">
-                                {data.strategies.map((strategy, idx) => (
-                                    <div key={idx} className="portfolio-strategy">
-                                        <img
-                                            src={strategy.icon}
-                                            alt={`${strategy.name} Icon`}
-                                            className="strategy-icon"
-                                            onClick={() => openModal(strategy)} // Open modal on icon click
-                                        />
-                                        <div className="strategy-details">
-                                            <div className="strategy-header">{strategy.name}</div>
-                                            {strategy.percentage && (
-                                                <div className="strategy-percentage">Daily PNL: {strategy.percentage}</div>
-                                            )}
-                                            {strategy.balance && strategy.locked && (
-                                                <div className="strategy-financials">
-                                                    <div className="financial-balance">
-                                                        <span className="financial-label">Balance</span>
-                                                        <span className="financial-value">{strategy.balance}</span>
-                                                    </div>
-                                                    <div className="financial-locked">
-                                                        <span className="financial-label">Locked</span>
-                                                        <span className="financial-value">{strategy.locked}</span>
-                                                    </div>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Floating Icons */}
-                <FloatingIcon />
-
-                {/* Modal (Strategy Details) */}
-                {isModalOpen && (
-                    <div className="reserve-modal-overlay" onClick={closeModal}>
-                        <div className="reserve-modal-content" onClick={(e) => e.stopPropagation()}>
-                            <button className="close-modal" onClick={closeModal}>×</button>
-                            <div className="modal-header">
-                                <h3>{selectedStrategy?.name}</h3>
-                            </div>
-                            <div className="modal-body">
-                                <p>Daily PNL: {selectedStrategy?.percentage}</p>
-                                {selectedStrategy?.balance && (
-                                    <>
-                                        <p>Balance: {selectedStrategy.balance}</p>
-                                        <p>Locked: {selectedStrategy.locked}</p>
-                                    </>
-                                )}
-                            </div>
-                        </div>
+                    <div className="portfolio-intro-section">
+                        <h2>Portfolio Overview</h2>
+                        <p>PNLs & Balances</p>
                     </div>
-                )}
+
+                    {/* Portfolio Boxes Section */}
+                    <div className="portfolio-boxes">
+                        {portfolioData.map((data, index) => (
+                            <div key={index} className="portfolio-box">
+                                <h2>{data.title}</h2>
+                                <div className="portfolio-strategies">
+                                    {data.strategies.map((strategy, idx) => (
+                                        <div key={idx} className="portfolio-strategy">
+                                            <img
+                                                src={strategy.icon}
+                                                alt={`${strategy.name} Icon`}
+                                                className="portfolio-strategy-icon"
+                                                onClick={() => openModal(strategy)} // Open modal on icon click
+                                            />
+                                            <div className="portfolio-strategy-details">
+                                                <div className="portfolio-strategy-header">{strategy.name}</div>
+                                                {strategy.percentage && (
+                                                    <div className="portfolio-strategy-percentage">Daily PNL: {strategy.percentage}</div>
+                                                )}
+                                                {strategy.balance && strategy.locked && (
+                                                    <div className="portfolio-strategy-financials">
+                                                        <div className="portfolio-financial-balance">
+                                                            <span className="portfolio-financial-label">Balance</span>
+                                                            <span className="portfolio-financial-value">{strategy.balance}</span>
+                                                        </div>
+                                                        <div className="portfolio-financial-locked">
+                                                            <span className="portfolio-financial-label">Locked</span>
+                                                            <span className="portfolio-financial-value">{strategy.locked}</span>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Floating Icons */}
+                    <FloatingIcon />
+
+                    {/* Modal (Strategy Details) */}
+                    {isModalOpen && (
+                        <div className="reserve-modal-overlay" onClick={closeModal}>
+                            <div className="reserve-modal-content" onClick={(e) => e.stopPropagation()}>
+                                <button className="close-modal" onClick={closeModal}>×</button>
+                                <div className="modal-header">
+                                    <h3>{selectedStrategy?.name}</h3>
+                                </div>
+                                <div className="modal-body">
+                                    <p>Daily PNL: {selectedStrategy?.percentage}</p>
+                                    {selectedStrategy?.balance && (
+                                        <>
+                                            <p>Balance: {selectedStrategy.balance}</p>
+                                            <p>Locked: {selectedStrategy.locked}</p>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

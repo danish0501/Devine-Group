@@ -5,23 +5,28 @@
 }
 
 .portfolio-sidebar {
-    width: 20%;
+    width: 100%;
+    max-width: 250px;
     position: static;
 }
 
-.portfolio {
-    background-color: var(--white-color);
+.portfolios {
     width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
+}
+
+.portfolio {
+    width: 100%;
+    padding: 30px;
 }
 
 .portfolio-intro-section {
     text-align: center;
-    margin: 0 auto;
     color: var(--black-color);
-    margin-top: 25px;
-    margin-bottom: 30px;
+    margin: 30px 0;
     font-size: 20px;
 }
 
@@ -29,15 +34,15 @@
     font-weight: bolder;
 }
 
-.portfolio-intro-section p {
-    font-weight: bold;
+.overview-intro-section p {
+    font-weight: 400;
 }
 
 .portfolio-boxes {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
+    gap: 20px;
     width: 100%;
     height: auto;
 }
@@ -49,15 +54,13 @@
     border: 1px solid #e4dbdb;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
-    margin-bottom: 20px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
 }
 
 .portfolio-box h2 {
     font-size: 20px;
-    color: var(--white-color);
+    color: #FFF;
     margin-bottom: 20px;
     font-weight: bold;
     text-align: center;
@@ -78,6 +81,8 @@
 
 .portfolio-strategies {
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -89,16 +94,14 @@
     border-radius: 5px;
     box-shadow: 0 0 0.1px rgb(255, 255, 255);
     background: linear-gradient(to bottom, #000000, #121212);
-    display: flex;
+    display: flex; 
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
     color: var(--white-color);
-    width: 24.25%;
-    box-sizing: border-box;
+    width: 24%;
 }
 
-.strategy-icon {
+.portfolio-strategy-icon {
     width: 40px;
     height: 40px;
     position: absolute;
@@ -107,32 +110,32 @@
     cursor: pointer;
 }
 
-.strategy-icon:hover {
+.portfolio-strategy-icon:hover {
     transform: scale(1.1);
 }
 
-.strategy-details {
+.portfolio-strategy-details {
     text-align: left;
     padding: 0 10px;
 }
 
-.strategy-header {
-    font-size: 20px;
-    color: var(--white-color);
+.portfolio-strategy-header {
+    font-size: 18px;
+    color: #FFF;
     text-align: center;
 }
 
-.strategy-percentage {
+.portfolio-strategy-percentage {
     position: absolute;
     top: 24px;
     right: 10px;
     font-size: 14px;
-    color: var(--white-color);
+    color: #FFF;
     font-weight: bold;
     text-shadow: 0px 0px 8px #60ff51;
 }
 
-.strategy-financials {
+.portfolio-strategy-financials {
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -141,22 +144,21 @@
     right: 10px;
 }
 
-.financial-balance,
-.financial-locked {
+.portfolio-financial-balance,
+.portfolio-financial-locked {
     display: flex;
     flex-direction: column;
 }
 
-.financial-label {
+.portfolio-financial-label {
     font-size: 15px;
     color: #888;
 }
 
-.financial-value {
+.portfolio-financial-value {
     font-size: 15px;
     font-weight: bold;
-    color: var(--white-color);
-    margin-left: 5px;
+    color: #FFF;
 }
 
 .reserve-modal-overlay {
@@ -181,7 +183,6 @@
     width: 900px;
     max-height: 80%;
     overflow-y: auto;
-    box-sizing: border-box;
 }
 
 .close-modal {
@@ -205,17 +206,12 @@
 }
 
 @media (max-width: 1024px) {
-    .portfolio-sidebar {
-        width: 25%;
+    .portfolio-strategies{
+        gap: 20px;
     }
-
-    .portfolio {
-        width: 75%;
-        padding: 15px;
-    }
-
+    
     .portfolio-strategy {
-        width: 32%;
+        width: 45%;
         padding: 50px;
     }
 
@@ -225,95 +221,35 @@
 }
 
 @media (max-width: 800px) {
-    .portfolio {
-        margin-left: 60px;
-    }
-
-    .portfolio-strategy {
-        width: 48%;
-    }
+   .portfolio-strategy-header {
+    font-size: 16px;
+   }
 }
 
 @media (max-width: 768px) {
-    .portfolio {
-        margin-left: 0px;
-    }
-
-    .portfolio-strategy {
-        padding: 50px;
-    }
-
     .portfolio-container {
         flex-direction: column;
     }
 
-    .portfolio-sidebar,
-    .portfolio {
-        width: 100%;
-    }
-
-    .portfolio-strategies {
-        justify-content: center;
-    }
-
-    .portfolio-strategy {
-        width: 45%;
-        padding: 50px;
-    }
-
     .portfolio-intro-section {
-        font-size: 18px;
         margin-top: 60px;
     }
 }
 
 @media (max-width: 500px) {
-    .portfolio {
-        padding: 10px;
-    }
-
-    .portfolio-intro-section {
-        margin-bottom: 20px;
-        font-size: 16px;
-    }
-
-    .portfolio-box {
-        padding: 15px;
-    }
-
     .portfolio-strategy {
         width: 90%;
-        padding: 30px;
-        margin: 0 auto;
-        position: relative;
-    }
-
-    .strategy-percentage {
-        top: 20px;
-        right: 10px;
-    }
-
-    .strategy-financials {
-        position: relative;
-        margin-top: 10px;
-        bottom: -10px;
-        left: auto;
-        right: auto;
-        justify-content: space-between;
+        height: 130px;
     }
 
     .reserve-modal-content {
         width: 95%;
         padding: 20px;
     }
-
-    .portfolio-logos {
-        display: none;
-    }
 }
 
 @media (max-width: 375px) {
-    .portfolio-strategy {
-        padding: 40px;
+    .portfolio-strategy-header {
+        margin-top: 10px;
     }
 }

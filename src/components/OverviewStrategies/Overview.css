@@ -2,68 +2,67 @@
     display: flex;
     width: 100%;
     overflow-x: hidden;
-    box-sizing: border-box;
 }
 
 .overview-sidebar {
-    width: 18%;
+    width: 100%;
+    max-width: 250px;
     position: static;
-    overflow: hidden;
+}
+
+.overviews {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
 }
 
 .overview {
-    background-color: var(--white-color);
-    width: 90%;
-    padding: 20px;
-    box-sizing: border-box;
+    width: 100%;
+    padding: 30px;
 }
 
 .overview-intro-section {
     text-align: center;
-    margin: 5px auto;
-    width: 100%;
-    padding-top: 20px;
+    color: var(--black-color);
+    margin: 30px 0;
+    font-size: 20px;
 }
 
 .overview-intro-section h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-weight: bolder;
 }
 
 .overview-intro-section p {
-    font-size: 18px;
+    font-weight: 400;
 }
 
-.strategies-overview {
-    margin: 40px 100px;
-    padding: 0 20px;
+.overview-strategies {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 30px;
+    margin-top: 50px;
 }
 
-.strategy-box {
+.overview-strategy-box {
     background: linear-gradient(135deg, #000000, #000000);
     border-radius: 10px;
     padding: 20px;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 350px;
+    width: 40%;
     box-shadow: 0 0 20px rgb(123, 123, 123);
     border: 2px solid #d9d9d9;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     cursor: pointer;
-    height: 250px;
-    overflow: hidden;
+    height: 300px;
     position: relative;
-    box-sizing: border-box;
 }
 
-.strategy-box img {
+.overview-strategy-box img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -74,25 +73,25 @@
     z-index: 1;
 }
 
-.strategy-box:hover {
+.overview-strategy-box:hover {
     transform: scale(1.01);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     background: linear-gradient(135deg, #a5a5a5, #000000);
     transition: all 0.5s ease;
 }
 
-.strategy-header {
+.overview-strategy-header {
     padding: 5px;
     border-radius: 5px;
     width: 100%;
     text-align: center;
     font-size: 18px;
-    color: var(--white-color);
+    color: #FFF;
     font-weight: bold;
     z-index: 2;
 }
 
-.strategy-metrics {
+.overview-strategy-metrics {
     font-size: 14px;
     position: absolute;
     bottom: 10px;
@@ -227,23 +226,12 @@
 }
 
 @media (max-width: 1024px) {
-    .overview-sidebar {
-        width: 25%;
+    .overview-strategies {
+        gap: 20px;   
     }
 
-    .overview {
-        width: 75%;
-        padding: 15px;
-    }
-
-    .strategies-overview {
-        margin: 40px 50px;
-        gap: 20px;
-    }
-
-    .strategy-box {
-        width: 100%;
-        max-width: 500px;
+    .overview-strategy-box {
+        width: 45%;
     }
 
     .modal-content {
@@ -252,28 +240,18 @@
 }
 
 @media (max-width: 900px) {
-    .overview {
-        margin-left: 40px;
+    .overview-strategy-box {
+        height: 250px;
+    }
+
+    .overview-strategy-header {
+        font-size: 16px;
     }
 }
 
 @media (max-width: 768px) {
     .overview-container {
         flex-direction: column;
-    }
-
-    .overview-sidebar,
-    .overview {
-        width: 100%;
-    }
-
-    .overview-sidebar {
-        margin-top: 0px;
-    }
-
-    .overview {
-        padding: 5px 20px;
-        margin-left: 0px;
     }
 
     .overview-intro-section h2 {
@@ -285,22 +263,7 @@
         font-size: 16px;
     }
 
-    .strategies-overview {
-        margin: 20px 20px;
-        gap: 15px;
-    }
-
-    .strategy-box {
-        width: 90%;
-        height: 200px;
-        padding: 15px;
-    }
-
-    .strategy-logo {
-        margin-top: 20px;
-    }
-
-    .strategy-metrics {
+    .overview-strategy-metrics {
         font-size: 12px;
     }
 
@@ -319,21 +282,24 @@
         font-size: 14px;
     }
 
-    .strategies-overview {
-        margin: 10px 10px;
-        gap: 10px;
+    .overview-strategies {
+        margin: 10px 0px;
     }
 
-    .strategy-box {
-        max-width: 100%;
-        padding: 10px;
+    .overview-strategy-box {
+        width: 100%;
+        height: 220px;
     }
 
-    .strategy-header {
-        font-size: 16px;
+    .overview-strategy-box img {
+        margin-top: 15px;
     }
 
-    .strategy-metrics {
+    .overview-strategy-header {
+        font-size: 12px;
+    }
+
+    .overview-strategy-metrics {
         font-size: 10px;
     }
 
@@ -350,6 +316,25 @@
 
     .vault-button {
         padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 425px) {
+    .overview-intro-section h2 {
+        font-size: 19px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 375px) {
+    .overview-intro-section h2 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 320px) {
+    .overview-intro-section h2 {
         font-size: 14px;
     }
 }

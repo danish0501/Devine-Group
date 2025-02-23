@@ -13,8 +13,7 @@ import dg05Logo from "../../assets/DG05logo.png";
 
 function OverviewStrategies() {
   const [selectedStrategy, setSelectedStrategy] = useState(null);
-  const [account, setAccount] = useState(null); // Wallet connection state
-   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const openModal = (strategy) => {
     setSelectedStrategy(strategy);
@@ -110,125 +109,127 @@ function OverviewStrategies() {
     },
   ];
 
-   useEffect(() => {
-          const handleResize = () => {
-              setIsMobile(window.innerWidth <= 768);
-          };
-  
-          window.addEventListener("resize", handleResize);
-          return () => window.removeEventListener("resize", handleResize);
-      }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="overview-container">
       <div className="overview-sidebar">
         <Sidebar />
       </div>
-      <div className="overview">
+      <div className="overviews">
+        <div className="overview">
 
-      {isMobile ? <Navbar /> : <Header />}
+          {isMobile ? <Navbar /> : <Header />}
 
-        <div className="overview-intro-section">
-          <h2>Off-Chain Systematic Investment Vaults</h2>
-          <p>Allocate to institutional-grade off-chain RWA systematic investment strategies, on-chain.</p>
-        </div>
-
-        <div className="strategies-overview">
-          {strategies.map((strategy, index) => (
-            <div
-              key={index}
-              className="strategy-box"
-              onClick={() => openModal(strategy)}
-            >
-              <img src={strategy.logo} alt={strategy.name} className="strategy-logo" />
-              <div className="strategy-header">
-                <h3>{strategy.name}</h3>
-              </div>
-              <div className="strategy-metrics">
-                <p>Return YTD: <strong>{strategy.returnYTD}</strong></p>
-                <p>Sharpe Ratio: <strong>{strategy.sharpeRatio}</strong></p>
-                <p>Max Drawdown: <strong>{strategy.maxDrawdown}</strong></p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {selectedStrategy && (
-          <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <div className="modal-header">
-                <h3>{selectedStrategy.name} Details</h3>
-                <button className="close-modal" onClick={closeModal}>X</button>
-              </div>
-              <div className="modal-body">
-                {/* Overview Section */}
-                <div className="overview-box">
-                  <h4>Strategy Overview</h4>
-                  <p>{selectedStrategy.overview}</p>
-                </div>
-
-                {/* Details Section */}
-                <div className="details-box">
-                  <p><strong>Return YTD:</strong> {selectedStrategy.returnYTD}</p>
-                  <p><strong>Sharpe Ratio:</strong> {selectedStrategy.sharpeRatio}</p>
-                  <p><strong>Max Drawdown:</strong> {selectedStrategy.maxDrawdown}</p>
-                  <h4>Details:</h4>
-                  {selectedStrategy.details.map((detail, index) => (
-                    <p key={index}>{detail}</p>
-                  ))}
-                </div>
-
-                <h4>Monthly Returns (Geometric Compounding)</h4>
-                <table className="returns-table">
-                  <thead>
-                    <tr>
-                      <th>Year</th>
-                      <th>Jan</th>
-                      <th>Feb</th>
-                      <th>Mar</th>
-                      <th>Apr</th>
-                      <th>May</th>
-                      <th>Jun</th>
-                      <th>Jul</th>
-                      <th>Aug</th>
-                      <th>Sep</th>
-                      <th>Oct</th>
-                      <th>Nov</th>
-                      <th>Dec</th>
-                      <th>Yearly</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>2024</td>
-                      <td>-0.5%</td>
-                      <td>3.1%</td>
-                      <td>4.3%</td>
-                      <td>1.8%</td>
-                      <td>-0.9%</td>
-                      <td>1.4%</td>
-                      <td>2.1%</td>
-                      <td>0.5%</td>
-                      <td>-0.6%</td>
-                      <td>-0.4%</td>
-                      <td>3.4%</td>
-                      <td>--</td>
-                      <td>15.1%</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <Link to="/vault">
-                  <button className="vault-button">Go to Vault</button>
-                </Link>
-              </div>
-            </div>
+          <div className="overview-intro-section">
+            <h2>Off-Chain Systematic Investment Vaults</h2>
+            <p>Allocate to institutional-grade off-chain RWA systematic investment strategies, on-chain.</p>
           </div>
-        )}
 
-        {/* Floating Icons */}
-        <FloatingIcon />
+          <div className="overview-strategies">
+            {strategies.map((strategy, index) => (
+              <div
+                key={index}
+                className="overview-strategy-box"
+                onClick={() => openModal(strategy)}
+              >
+                <img src={strategy.logo} alt={strategy.name} className="strategy-logo" />
+                <div className="overview-strategy-header">
+                  <h3>{strategy.name}</h3>
+                </div>
+                <div className="overview-strategy-metrics">
+                  <p>Return YTD: <strong>{strategy.returnYTD}</strong></p>
+                  <p>Sharpe Ratio: <strong>{strategy.sharpeRatio}</strong></p>
+                  <p>Max Drawdown: <strong>{strategy.maxDrawdown}</strong></p>
+                </div>
+              </div>
+            ))}
+          </div>
 
+          {selectedStrategy && (
+            <div className="modal-overlay" onClick={closeModal}>
+              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-header">
+                  <h3>{selectedStrategy.name} Details</h3>
+                  <button className="close-modal" onClick={closeModal}>X</button>
+                </div>
+                <div className="modal-body">
+                  {/* Overview Section */}
+                  <div className="overview-box">
+                    <h4>Strategy Overview</h4>
+                    <p>{selectedStrategy.overview}</p>
+                  </div>
+
+                  {/* Details Section */}
+                  <div className="details-box">
+                    <p><strong>Return YTD:</strong> {selectedStrategy.returnYTD}</p>
+                    <p><strong>Sharpe Ratio:</strong> {selectedStrategy.sharpeRatio}</p>
+                    <p><strong>Max Drawdown:</strong> {selectedStrategy.maxDrawdown}</p>
+                    <h4>Details:</h4>
+                    {selectedStrategy.details.map((detail, index) => (
+                      <p key={index}>{detail}</p>
+                    ))}
+                  </div>
+
+                  <h4>Monthly Returns (Geometric Compounding)</h4>
+                  <table className="returns-table">
+                    <thead>
+                      <tr>
+                        <th>Year</th>
+                        <th>Jan</th>
+                        <th>Feb</th>
+                        <th>Mar</th>
+                        <th>Apr</th>
+                        <th>May</th>
+                        <th>Jun</th>
+                        <th>Jul</th>
+                        <th>Aug</th>
+                        <th>Sep</th>
+                        <th>Oct</th>
+                        <th>Nov</th>
+                        <th>Dec</th>
+                        <th>Yearly</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2024</td>
+                        <td>-0.5%</td>
+                        <td>3.1%</td>
+                        <td>4.3%</td>
+                        <td>1.8%</td>
+                        <td>-0.9%</td>
+                        <td>1.4%</td>
+                        <td>2.1%</td>
+                        <td>0.5%</td>
+                        <td>-0.6%</td>
+                        <td>-0.4%</td>
+                        <td>3.4%</td>
+                        <td>--</td>
+                        <td>15.1%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <Link to="/vault">
+                    <button className="vault-button">Go to Vault</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Floating Icons */}
+          <FloatingIcon />
+
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import "./OffChainDeposit.css";
 import { Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
@@ -44,7 +44,7 @@ const VAULTS = [
     { name: "DG04 (WBTC)", address: "0x5034602bD7E7D141bfbbbBf2e9D4FAa283E94560", tokenAddress: "0x582E68bDe36703fad9F82Eee42D77f28b986214e" },
 ];
 
-function OffChainDeposit() {
+const OffChainDeposit = () => {
     const [selectedVault, setSelectedVault] = useState(VAULTS[0]);
     const [ethAmount, setEthAmount] = useState("");
     const [apiKey, setApiKey] = useState("");   // For API Key input
@@ -164,111 +164,110 @@ function OffChainDeposit() {
     }, []);
 
     return (
-        <div className="offchain-container" data-theme={theme}>
+        <div className="offchain-container">
             <div className="offchain-sidebar">
                 <Sidebar />
             </div>
-            <div className="offchain">
+            <div className="offchains">
+                <div className="offchain">
+                    {isMobile ? <Navbar /> : <Header />}
 
-                {isMobile ? <Navbar /> : <Header />}
-
-                <div className="metrics-bar">
-                    <div className="metric">Sharpe: 3.54</div>
-                    <div className="metric">Max DD: -5.00%</div>
-                    <div className="metric">Vault AUM: {vaultStats.totalAssets} ETH</div>
-                    <div className="metric">Providers: Algoz | Copper Custody</div>
-                    <div className="metric">Avg 1Y Annualized APR: 30%</div>
-                    <div className="metric">Redemptions: Liquid</div>
-                </div>
-
-                {/* <button className="allocate-offchain-button">
-                    <Link to="/OffChainDeposit">Allocate to off-chain trading venues</Link>
-                </button> */}
-
-                <div className="offchain-intro-section">
-                    <h2>Allocate To Our Institutional-Grade Quantitative Strategies</h2>
-                    <p>Earn Yield from the Best Off-Chain Asset Managers in the Industry.</p>
-                </div>
-
-                <div className="offchain-containers">
-                    <div className="offchain-header">
-                        <img src={getVaultLogo()} alt="Vault Logo" className="offchain-icon" />
-                        <select
-                            className="offchain-select"
-                            value={selectedVault.address}
-                            onChange={(e) => {
-                                const selected = VAULTS.find((vault) => vault.address === e.target.value);
-                                setSelectedVault(selected);
-                            }}
-                        >
-                            {VAULTS.map((vault) => (
-                                <option key={vault.address} value={vault.address}>
-                                    {vault.name}
-                                </option>
-                            ))}
-                        </select>
+                    <div className="offchain-metrics-bar">
+                        <div className="offchain-metric">Sharpe: 3.54</div>
+                        <div className="offchain-metric">Max DD: -5.00%</div>
+                        <div className="offchain-metric">Vault AUM: {vaultStats.totalAssets} ETH</div>
+                        <div className="offchain-metric">Providers: Algoz | Copper Custody</div>
+                        <div className="offchain-metric">Avg 1Y Annualized APR: 30%</div>
+                        <div className="offchain-metric">Redemptions: Liquid</div>
                     </div>
 
-                    <div className="offchain-input-group">
-                        <img src={apikeylogo} alt="API Key Logo" />
-                        <input
-                            type="text"
-                            placeholder="Enter Sub-Account API Key"
-                            value={apiKey}
-                            onChange={(e) => setApiKey(e.target.value)}
-                        />
+                    <div className="offchain-intro-section">
+                        <h2>Allocate To Our Institutional-Grade Quantitative Strategies</h2>
+                        <p>Earn Yield from the Best Off-Chain Asset Managers in the Industry.</p>
                     </div>
 
-                    <div className="offchain-input-group">
-                        <img src={secretkeylogo} alt="Secret Key Logo" />
-                        <input
-                            type="text"
-                            placeholder="Enter Sub-Account Secret Key"
-                            value={secretKey}
-                            onChange={(e) => setSecretKey(e.target.value)}
-                        />
+                    <div className="offchain-inner-container">
+                        <div className="offchain-containers">
+                            <div className="offchain-header">
+                                <img src={getVaultLogo()} alt="Vault Logo" className="offchain-icon" />
+                                <select
+                                    className="offchain-select"
+                                    value={selectedVault.address}
+                                    onChange={(e) => {
+                                        const selected = VAULTS.find((vault) => vault.address === e.target.value);
+                                        setSelectedVault(selected);
+                                    }}
+                                >
+                                    {VAULTS.map((vault) => (
+                                        <option key={vault.address} value={vault.address}>
+                                            {vault.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div className="offchain-input-group">
+                                <img src={apikeylogo} alt="API Key Logo" />
+                                <input
+                                    type="text"
+                                    placeholder="Enter Sub-Account API Key"
+                                    value={apiKey}
+                                    onChange={(e) => setApiKey(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="offchain-input-group">
+                                <img src={secretkeylogo} alt="Secret Key Logo" />
+                                <input
+                                    type="text"
+                                    placeholder="Enter Sub-Account Secret Key"
+                                    value={secretKey}
+                                    onChange={(e) => setSecretKey(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="offchain-input-group">
+                                <img
+                                    src={
+                                        selectedVault.name.includes("USDT")
+                                            ? usdtLogo
+                                            : selectedVault.name.includes("USDC")
+                                                ? usdcLogo
+                                                : selectedVault.name.includes("WBTC")
+                                                    ? wbtcLogo
+                                                    : ethLogo
+                                    }
+                                    alt="Token Logo"
+                                />
+                                <input
+                                    type="number"
+                                    placeholder={`Enter ${selectedVault.name.split(" ")[1]} Allocation amount`}
+                                    value={ethAmount}
+                                    onChange={(e) => setEthAmount(e.target.value)}
+                                />
+                            </div>
+
+                            <button className="offchain-toggle-button" onClick={() => setIsDeposit(!isDeposit)}>
+                                <img src={getActionIcon()} alt="Action Icon" className="action-icon" />
+                            </button>
+
+                            <button
+                                className="offchain-stake-button"
+                                onClick={isDeposit ? deposit : withdraw}
+                                disabled={loadingApproval || loadingDeposit || loadingWithdraw}
+                            >
+                                {loadingApproval
+                                    ? "Approving..."
+                                    : loadingDeposit
+                                        ? "Depositing..."
+                                        : loadingWithdraw
+                                            ? "Withdrawing..."
+                                            : isDeposit
+                                                ? "Deposit"
+                                                : "Withdraw"}
+                            </button>
+                        </div>
                     </div>
-
-                    <div className="offchain-input-group">
-                        <img
-                            src={
-                                selectedVault.name.includes("USDT")
-                                    ? usdtLogo
-                                    : selectedVault.name.includes("USDC")
-                                        ? usdcLogo
-                                        : selectedVault.name.includes("WBTC")
-                                            ? wbtcLogo
-                                            : ethLogo
-                            }
-                            alt="Token Logo"
-                        />
-                        <input
-                            type="number"
-                            placeholder={`Enter ${selectedVault.name.split(" ")[1]} Allocation amount`}
-                            value={ethAmount}
-                            onChange={(e) => setEthAmount(e.target.value)}
-                        />
-                    </div>
-
-                    <button className="toggle-button" onClick={() => setIsDeposit(!isDeposit)}>
-                        <img src={getActionIcon()} alt="Action Icon" className="action-icon" />
-                    </button>
-
-                    <button
-                        className="stake-button"
-                        onClick={isDeposit ? deposit : withdraw}
-                        disabled={loadingApproval || loadingDeposit || loadingWithdraw}
-                    >
-                        {loadingApproval
-                            ? "Approving..."
-                            : loadingDeposit
-                                ? "Depositing..."
-                                : loadingWithdraw
-                                    ? "Withdrawing..."
-                                    : isDeposit
-                                        ? "Deposit"
-                                        : "Withdraw"}
-                    </button>
                 </div>
             </div>
 
