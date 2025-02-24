@@ -71,7 +71,7 @@ const Portfolio = () => {
             <div className="portfolio-sidebar">
                 <Sidebar />
             </div>
-            <div class="portfolios">
+            <div className="portfolios">
                 <div className="portfolio">
 
                     {isMobile ? <Navbar /> : <Header />}

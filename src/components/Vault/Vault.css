@@ -2,6 +2,7 @@
     display: flex;
     width: 100%;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .vault-sidebar {
@@ -21,7 +22,7 @@
 .vault {
     width: 100%;
     padding: 30px;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .vault-metrics-bar {
