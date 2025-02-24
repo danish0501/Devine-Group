@@ -101,6 +101,12 @@
     justify-content: space-between;
     color: var(--white-color);
     width: 24%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-strategy:hover {
+    transform: scale(1.1);
 }
 
 .portfolio-strategy-icon {
@@ -109,11 +115,6 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    cursor: pointer;
-}
-
-.portfolio-strategy-icon:hover {
-    transform: scale(1.1);
 }
 
 .portfolio-strategy-details {
