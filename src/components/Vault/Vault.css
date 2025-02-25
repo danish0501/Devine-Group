@@ -38,6 +38,11 @@
     border: 2px solid #e4dbdb;
 }
 
+[data-theme="dark"] .vault-metrics-bar {
+    box-shadow: 0px 0px 12px #ADD8E6; 
+    border: 1px solid #ADD8E6; 
+}
+
 .vault-metric {
     background: linear-gradient(135deg, #fafafa, #fafafa);
     padding: 10px 0px;
@@ -116,6 +121,11 @@
     align-items: center;
     gap: 15px;
     margin-top: 50px;
+}
+
+[data-theme="dark"] .vault-containers {
+    box-shadow: 0px 0px 12px #ADD8E6; 
+    border: 1px solid #ADD8E6; 
 }
 
 .vault-header {

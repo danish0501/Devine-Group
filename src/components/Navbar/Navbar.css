@@ -13,6 +13,10 @@
     z-index: 100;
 }
 
+[data-theme="dark"] .navbar {
+    box-shadow: 0 0 14px #ADD8E6; 
+}
+
 .navbar-header {
     padding: 10px 30px;
     border-radius: 5px;
@@ -20,9 +24,13 @@
     font-weight: 500;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 0 20px rgb(123, 123, 123); /* Slight inner shadow for depth */
+    box-shadow: 0 0 20px rgb(123, 123, 123);
     background: black;
     color: white;
+}
+
+[data-theme="dark"] .navbar-header {
+    box-shadow: 0 0 10px #ADD8E6; 
 }
 
 .header-info {

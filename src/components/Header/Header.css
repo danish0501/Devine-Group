@@ -9,6 +9,11 @@
     box-shadow: 0 0 20px rgb(123, 123, 123);
 }
 
+[data-theme="dark"] .Header {
+    box-shadow: 0px 0px 15px #ADD8E6; 
+    border: 1px solid #ADD8E6;
+}
+
 .Header-container {
     width: 100%;
     display: flex;
@@ -26,6 +31,10 @@
     height: 70%; 
     cursor: pointer;
     box-shadow: 0 0 20px rgb(123, 123, 123);
+}
+
+[data-theme="dark"] .Header-info {
+    box-shadow: 0px 0px 14px #ADD8E6;
 }
 
 .Header-info .connect-wallet {

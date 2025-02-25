@@ -44,13 +44,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     width: 100%;
     height: auto;
 }
 
 .portfolio-box {
-    background: linear-gradient(to bottom, #000000, #000000);
+    background: linear-gradient(to bottom, #000000, #121212);
     border-radius: 8px;
     padding: 25px;
     border: 1px solid #e4dbdb;
@@ -58,6 +58,11 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+[data-theme="dark"] .portfolio-box {
+    box-shadow: 0px 0px 8px #ADD8E6; 
+    border: 1px solid #ADD8E6; 
 }
 
 .portfolio-box h2 {
@@ -103,6 +108,11 @@
     width: 24%;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+}
+
+[data-theme="dark"] .portfolio-strategy {
+    box-shadow: 0px 0px 2px #ADD8E6; 
+    border: 0.1px solid #ADD8E6; 
 }
 
 .portfolio-strategy:hover {
