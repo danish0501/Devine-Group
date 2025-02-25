@@ -54,7 +54,7 @@
     position: relative; /* Needed for pseudo-element */
     background: radial-gradient(150% 200% at 50% 50%, rgba(218, 227, 242, 0.12) 0%, rgba(102, 122, 155, 0) 100%), #000;
     border-radius: 12px;
-    padding: 25px;
+    padding: 18px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@
 
 
 .portfolio-box h2 {
-    font-size: 20px;
+    font-size: 17px;
     color: #FFF;
     margin-bottom: 20px;
     font-weight: bold;
