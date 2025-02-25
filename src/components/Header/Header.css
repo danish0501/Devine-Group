@@ -6,12 +6,8 @@
     justify-content: center;
     align-items: center; 
     border: 2px solid #e4dbdb;
-    box-shadow: 0 0 20px rgb(123, 123, 123);
-}
-
-[data-theme="dark"] .Header {
-    box-shadow: 0px 0px 15px #ADD8E6; 
-    border: 1px solid #ADD8E6;
+    border-radius: 40px;
+    box-shadow: 0 0 16px rgb(123, 123, 123);
 }
 
 .Header-container {
@@ -30,11 +26,8 @@
     color: #FFF;
     height: 70%; 
     cursor: pointer;
-    box-shadow: 0 0 20px rgb(123, 123, 123);
-}
-
-[data-theme="dark"] .Header-info {
-    box-shadow: 0px 0px 14px #ADD8E6;
+    border-radius: 40px;
+    box-shadow: 0 0 16px rgb(123, 123, 123);
 }
 
 .Header-info .connect-wallet {

@@ -64,11 +64,6 @@
     position: relative;
 }
 
-[data-theme="dark"] .overview-strategy-box {
-    box-shadow: 0px 0px 12px #ADD8E6; 
-    border: 1px solid #ADD8E6; 
-}
-
 .overview-strategy-box img {
     position: absolute;
     top: 50%;

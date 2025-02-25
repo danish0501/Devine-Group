@@ -8,6 +8,7 @@ import dg10Logo from "../../assets/DG10logo.png";
 import dg11Logo from "../../assets/DG11logo.png";
 import dg04Logo from "../../assets/DG04logo.png";
 import dg05Logo from "../../assets/DG05logo.png";
+import { Link } from 'react-router-dom';
 
 
 const Portfolio = () => {
@@ -75,11 +76,11 @@ const Portfolio = () => {
                 <div className="portfolio">
 
                     {isMobile ? <Navbar /> : <Header />}
-
+{/* 
                     <div className="portfolio-intro-section">
                         <h2>Portfolio Overview</h2>
                         <p>PNLs & Balances</p>
-                    </div>
+                    </div> */}
 
                     {/* Portfolio Boxes Section */}
                     <div className="portfolio-boxes">
@@ -118,6 +119,16 @@ const Portfolio = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    <div className="portfolio-buttons">
+                        <div className="portfolio-button">
+                            Portfolio Overview
+                        </div>
+
+                        <Link to="/vault" className="portfolio-button">
+                            Deposit/Withdraw
+                        </Link>
                     </div>
 
                     {/* Floating Icons */}
