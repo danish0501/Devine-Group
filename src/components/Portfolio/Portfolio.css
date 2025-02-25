@@ -51,15 +51,18 @@
 }
 
 .portfolio-box {
-    background: linear-gradient(to right, #000000, #121212);
+    background: radial-gradient(150% 200% at 50% 50%, rgba(218, 227, 242, 0.12) 0%, rgba(102, 122, 155, 0) 100%), #000;
     border-radius: 12px;
     padding: 25px;
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right, rgba(228, 219, 219, 1) 0%, rgba(156, 156, 156, 0) 50%, rgba(228, 219, 219, 1) 100%) 1;
-    border-image-slice: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
+    /* Updated Gradient Border Effect */
+    border: 1px solid transparent;
+    border-image: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(102, 122, 155, 0.1), rgba(255, 255, 255, 0.5)) 1;
+    border-image-slice: 1;
+    /* Subtle Outer Glow for a Softer Edge */
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
 }
 
 
@@ -97,8 +100,9 @@
     padding: 60px;
     border: 0.2px solid #4c4c4c;
     border-radius: 5px;
-    box-shadow: 0 0 0.1px rgb(255, 255, 255);
-    background: linear-gradient(to bottom, #000000, #121212);
+    box-shadow: 0.1px 0.1px 0.1px rgb(255, 255, 255);
+    overflow: visible; /* Allows child elements to show their full rounded borders */
+    background: radial-gradient(150% 200% at 50% 50%, rgba(218, 227, 242, 0.12) 0%, rgba(125, 150, 191, 0) 100%), #000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -109,7 +113,7 @@
 }
 
 .portfolio-strategy:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .portfolio-strategy-icon {
@@ -180,9 +184,9 @@
     width: 50%;
     height: 60px;
     border-radius: 8px;
-    border: 1px solid #e4dbdb;
+    border: 0.2px solid #4c4c4c;
     background-color: #000;
-    background: linear-gradient(to bottom, #000000, #121212);
+    background: radial-gradient(150% 200% at 50% 50%, rgba(218, 227, 242, 0.12) 0%, rgba(102, 122, 155, 0) 100%), #000;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -190,6 +194,15 @@
     color: #FFF;
     font-size: 18px;
     text-decoration: none;
+    animation: move-border 3s linear infinite;
+
+}
+
+/* Keyframes for Moving Gradient Animation */
+@keyframes move-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .reserve-modal-overlay {

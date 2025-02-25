@@ -14,7 +14,7 @@
 }
 
 [data-theme="dark"] .navbar {
-    box-shadow: 0 0 14px #ADD8E6; 
+    box-shadow: 0 0 1px #fbfbfb; 
 }
 
 .navbar-header {
