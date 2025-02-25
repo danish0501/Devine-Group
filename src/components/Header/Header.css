@@ -18,7 +18,7 @@
 }
 
 .Header-info {
-    background: #000;
+    background: radial-gradient(150% 200% at 50% 50%, rgba(154, 155, 157, 0.12) 0%, rgba(200, 212, 231, 0) 100%), #131313;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +26,7 @@
     height: 70%;
     cursor: pointer;
     border-radius: 40px;
+    border: 0.2px solid #ffffff;
     box-shadow: 0 0 16px rgb(123, 123, 123);
 }
 
